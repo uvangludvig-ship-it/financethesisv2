@@ -1,0 +1,10 @@
+# AI log (required for the AI appendix)
+
+One line per use, the same day. Tool, date, purpose, what changed in the project, whether any thesis text came out of it (the answer must be no). The authors verify every entry before the appendix is written.
+
+Entries up to 16 Nov 2026 are in the previous repository, `financethesis/AI_LOG.md`. Both logs are needed when the appendix is written.
+
+| Date | Tool | Purpose | What changed | Thesis text? |
+|---|---|---|---|---|
+| 17 Nov 2026 | Claude Code (Claude Opus 5.5) | Set up v2 with only the shared course material and topic-independent data, at Ludvig's request | Copied `reference/course_context/`, `reference/old_winners/`, `reference/non_winners/` and the topic-independent data (LSEG Swedish stock panel and classification, FI fund holdings and short-selling register, PPM statistics, SHoF fund master, AP fund holdings, their derived panels and three build scripts) from `financethesis`; 1,237 files, md5 identical to the originals. Removed our own feasibility notes from `TUTORS_AND_TOPICS.md` and added a dating note to `course_context/README.md`. Wrote `README.md`, `data/README.md`, this log, `.gitignore` and `.gitattributes`. No topic ideas, analyses or results transferred; nothing changed in the old repository | No |
+| 17 Nov 2026 | Claude Code (Claude Opus 5.5) | Document the v2 folders and publish the repository, at Ludvig's request | Wrote `README.md` files for `reference/`, each source folder in `data/raw/`, `data/derived/` and `data/build/` (contents, columns, periods and known data issues, checked against the files). Corrected `data/README.md` and the structure section of `README.md`. Committed and pushed to the private GitHub repository `financethesisv2`. No data file changed | No |
