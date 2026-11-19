@@ -1,0 +1,184 @@
+# Ben-David pa EU-data 2018-2025 (bd_eu_kid.pkl), tidpunkt for betyget: kodens (betyg per slutet av t)
+Fondmanader 210891, fonder 3058, 2018-01 till 2025-12 (ankaret, USA: 248 463 och 3 341, 1997-07 till 2011-12).
+
+## Table 1
+
+| Variabel | Antal | Medel | CS std | TS std | P5 | P25 | P50 | P75 | P95 | Ankaret medel / CS std / P50 |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Storlek (MUSD) | 210891 | 652.68 | 1117.60 | 77.95 | 20.12 | 73.43 | 229.03 | 676.24 | 2874.84 | 1 472 / 3 038 / 411 |
+| Ålder (år) | 210891 | 14.28 | 7.82 | 0.55 | 4.61 | 7.72 | 12.74 | 19.59 | 29.59 | 16,9 / 12,8 / 12,8 |
+| Flöde (%) | 210891 | -0.40 | 4.59 | 0.56 | -6.95 | -1.62 | -0.29 | 0.71 | 6.19 | −0,54 / 2,18 / −0,61 |
+| Flöde (MUSD) | 210891 | -1.80 | 32.41 | 3.91 | -45.80 | -4.43 | -0.27 | 1.31 | 37.35 | −2,6 / 52,4 / −1,2 |
+| Rå överavk. (%) | 210891 | 0.52 | 0.91 | 1.37 | -2.40 | -0.37 | 0.62 | 1.50 | 3.05 | 0,34 / 0,99 / 0,71 |
+| Marknadsjust. (%) | 210891 | -0.30 | 0.91 | 0.29 | -1.93 | -0.83 | -0.28 | 0.23 | 1.28 | 0,07 / 0,99 / 0,01 |
+| CAPM-alfa (%) | 210891 | -0.29 | 0.88 | 0.28 | -1.88 | -0.80 | -0.26 | 0.24 | 1.24 | 0,09 / 0,95 / 0,03 |
+| FF3-alfa (%) | 210891 | -0.18 | 0.79 | 0.25 | -1.54 | -0.65 | -0.19 | 0.26 | 1.26 | −0,03 / 0,78 / −0,07 |
+| FFC-alfa (%) | 210891 | -0.22 | 0.80 | 0.28 | -1.63 | -0.68 | -0.22 | 0.23 | 1.22 | −0,03 / 0,76 / −0,06 |
+
+## Table 2, kolumn 1–5: aggregerat likaviktat flöde på aggregerat mått (z-värde), Newey-West 6
+
+| Mått | Koef. | t | R² | Ankaret |
+|---|---|---|---|---|
+| Rå | +0.229 | 2.57 | 0.164 | 0,179 (4,47), R² 0,159 |
+| Marknadsjust. | +0.164 | 1.90 | 0.084 | 0,015 (0,26) |
+| CAPM | +0.126 | 1.50 | 0.050 | 0,018 (0,38) |
+| FF3 | +0.043 | 0.67 | 0.006 | −0,048 (−1,01) |
+| FFC | +0.038 | 0.53 | 0.005 | −0,018 (−0,36) |
+Manader: 96 (ankaret 175).
+
+## Figure 3: R²-uppdelning (procent)
+
+| Variant | Totalt | Tid | Avkastning | Betyg | Gemensamt | Ankaret (totalt / tid / avk / betyg / gem) |
+|---|---|---|---|---|---|---|
+| EW kontinuerlig | 4.9 | 1.3 | 1.8 | 1.2 | 0.7 | 19,4 / 3,6 / 5,6 / 6,5 / 3,8 |
+| EW diskret | 4.9 | 1.3 | 1.8 | 1.1 | 0.7 | 19,8 / 3,6 / 6,0 / 6,5 / 3,8 |
+| VW kontinuerlig | 8.7 | 2.3 | 3.4 | 1.7 | 1.3 | 28,9 / 5,9 / 6,8 / 9,6 / 6,7 |
+| VW diskret | 8.6 | 2.3 | 3.3 | 1.7 | 1.3 | 29,0 / 5,9 / 6,9 / 9,8 / 6,5 |
+
+## Figure 4: toppfonder (andel toppklassade per månad 12.9 %, ankaret 7,4 %)
+
+| Grupp | Flöde (%) | Flöde (MUSD) | Andel positiva (%) |
+|---|---|---|---|
+| Morningstar | 1.05 | 8.5 | 56.6 |
+| Rå | 1.06 | 7.8 | 54.9 |
+| CAPM | 1.07 | 8.4 | 55.4 |
+| FF3 | 0.74 | 5.3 | 51.1 |
+| FFC | 0.74 | 5.3 | 51.0 |
+| Alla | -0.36 | -1.6 | 40.2 |
+Ankaret: Morningstar 1,16 / cirka 37 / 67,5; rå 0,99 / cirka 18 / 61,7; alla −0,49 / cirka 0 / 35,2. Övriga alfor lägre än rå.
+
+## Table 3: kodens form (b1 på A − B, ingen månadseffekt, kluster fond och månad)
+
+| Par | Flöde (%) | t | MUSD | t | Positivt (pp) | t | Ankaret % (t) / MUSD / pp |
+|---|---|---|---|---|---|---|---|
+| Morningstar mot Rå | -0.017 | -0.27 | +0.369 | 0.76 | +1.014 | 1.56 | 0,099 (2,50) / 10,9 / 7,1 |
+| Morningstar mot CAPM | -0.027 | -0.45 | +0.010 | 0.02 | +0.690 | 1.10 | 0,108 (2,72) / 11,0 / 7,3 |
+| Morningstar mot FF3 | +0.192 | 3.58 | +2.054 | 4.26 | +3.507 | 5.64 | 0,192 (4,85) / 12,3 / 10,4 |
+| Morningstar mot FFC | +0.189 | 3.46 | +2.018 | 4.11 | +3.560 | 5.74 | 0,188 (4,73) / 12,5 / 10,0 |
+| Rå mot CAPM | -0.047 | -0.56 | -1.775 | -2.99 | -1.659 | -1.93 | 0,032 (0,62) / 0,3 / 0,8 |
+| Rå mot FF3 | +0.445 | 6.55 | +3.602 | 5.42 | +5.338 | 6.91 | 0,207 (4,74) / 3,1 / 7,3 |
+| Rå mot FFC | +0.428 | 6.13 | +3.444 | 5.20 | +5.326 | 6.96 | 0,195 (4,48) / 3,7 / 6,5 |
+| CAPM mot FF3 | +0.548 | 7.87 | +5.135 | 6.74 | +7.120 | 8.74 | 0,220 (5,06) / 3,4 / 8,0 |
+| CAPM mot FFC | +0.515 | 7.17 | +4.817 | 6.39 | +6.925 | 8.65 | 0,197 (4,55) / 3,9 / 6,8 |
+| FF3 mot FFC | -0.027 | -0.34 | -0.288 | -0.46 | +0.454 | 0.48 | −0,017 (−0,26) / 1,7 / −1,4 |
+
+## Figure 5 A(a): medelflöde (%) per betyg och år
+
+| År | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| 2018 | -0.67 | -0.85 | -0.60 | 0.04 | 1.32 |
+| 2019 | -1.06 | -1.22 | -1.06 | -0.38 | 0.94 |
+| 2020 | -1.51 | -0.91 | -0.62 | 0.10 | 1.83 |
+| 2021 | -0.24 | -0.27 | 0.02 | 0.52 | 1.41 |
+| 2022 | -0.75 | -0.61 | -0.54 | -0.30 | 0.19 |
+| 2023 | -0.94 | -1.00 | -0.85 | -0.28 | 0.57 |
+| 2024 | -1.37 | -1.41 | -0.95 | -0.26 | 0.85 |
+| 2025 | -1.57 | -1.33 | -0.96 | -0.26 | 1.25 |
+Ankaret 2002: −1,58 / −1,26 / −0,78 / 0,05 / 1,28; 2008: −2,06 / −1,72 / −1,16 / −0,38 / 0,54.
+
+## Figure 5 A(b): betygets koefficient per år, kodens kontroller, kluster fond och månad
+
+| År | Koef. | t | Fondmånader |
+|---|---|---|---|
+| 2018 | 0.63 | 8.6 | 12133 |
+| 2019 | 0.56 | 6.8 | 13080 |
+| 2020 | 0.61 | 7.1 | 14238 |
+| 2021 | 0.37 | 4.3 | 15515 |
+| 2022 | 0.20 | 4.9 | 16299 |
+| 2023 | 0.46 | 10.2 | 17577 |
+| 2024 | 0.62 | 10.2 | 18970 |
+| 2025 | 0.62 | 10.3 | 20249 |
+Ankaret: 0,4–0,6 varje år.
+
+## Table 3, variant med Europe-faktorer (flode %, t)
+
+| Par | Flode (%) | t |
+|---|---|---|
+| Morningstar mot CAPM-Eur | -0.021 | -0.36 |
+| Morningstar mot FF3-Eur | +0.128 | 2.25 |
+| Morningstar mot FFC-Eur | +0.157 | 2.67 |
+
+# Hastkapplopningen: riskklassen som tredje signal
+Fondmanader med visad riskklass: 186795, fonder 2861. Fordelning: {2: 186, 3: 1994, 4: 47521, 5: 60105, 6: 72377, 7: 4612}
+
+## H1: R2-uppdelning med tre block (procent). Marginellt = R2 med alla tre minus R2 utan blocket
+
+| Urval | Vikt | Fondmanader | Totalt | Tid | Avkastning marg. | Betyg marg. | Riskklass marg. |
+|---|---|---|---|---|---|---|---|
+| 2018-2025 | EW | 186795 | 5.41 | 1.45 | 1.92 | 1.27 | 0.03 |
+| 2018-2025 | VW | 186795 | 9.17 | 2.37 | 3.54 | 1.81 | 0.11 |
+| 2018-2022 (SRRI) | EW | 114076 | 5.17 | 1.59 | 1.87 | 1.00 | 0.03 |
+| 2018-2022 (SRRI) | VW | 114076 | 9.32 | 2.69 | 3.76 | 1.39 | 0.11 |
+| 2023-2025 (SRI) | EW | 72719 | 5.23 | 0.35 | 2.08 | 1.89 | 0.03 |
+| 2023-2025 (SRI) | VW | 72719 | 8.19 | 0.62 | 3.14 | 2.96 | 0.09 |
+
+## H2: regression med betyg, riskklass, avkastning och kodens kontroller
+
+**H2a 2018-2025, manadseffekt (huvud)** (119598 fondmanader, 1766 fonder). Flode i procent per manad, bas betyg 1 och riskklass 4.
+| Variabel | Koef. | t |
+|---|---|---|
+| s_2 | +0.118 | 1.16 |
+| s_3 | +0.309 | 3.01 |
+| s_4 | +0.920 | 8.29 |
+| s_5 | +2.013 | 13.35 |
+| k_2 | +0.188 | 0.45 |
+| k_3 | -0.121 | -0.56 |
+| k_5 | +0.024 | 0.26 |
+| k_6 | +0.008 | 0.06 |
+| k_7 | +0.766 | 2.77 |
+| unad_a | +0.806 | 16.75 |
+| sd60 | -0.107 | -2.84 |
+Gemensamt test riskklassdummies: chi2 12.99, df 5, p 0.023
+**H2b 2018-2025, manadseffekt (huvud), linjar:** riskklass +0.026 (t 0.44), 95 % [-0.088; +0.139] | betyg +0.547 (t 15.86) | per ar: riskklass +0.31 pp, betyg +6.57 pp | kvot riskklass/betyg +0.05
+
+**H2a 2018-2025, manad x kategori** (119598 fondmanader, 1766 fonder). Flode i procent per manad, bas betyg 1 och riskklass 4.
+| Variabel | Koef. | t |
+|---|---|---|
+| s_2 | +0.031 | 0.31 |
+| s_3 | +0.234 | 2.32 |
+| s_4 | +0.775 | 7.02 |
+| s_5 | +1.845 | 12.68 |
+| k_2 | +0.225 | 0.34 |
+| k_3 | -0.115 | -0.53 |
+| k_5 | -0.020 | -0.21 |
+| k_6 | -0.071 | -0.55 |
+| k_7 | +0.329 | 1.11 |
+| unad_a | +1.088 | 19.54 |
+| sd60 | -0.035 | -0.70 |
+Gemensamt test riskklassdummies: chi2 3.67, df 5, p 0.597
+**H2b 2018-2025, manad x kategori, linjar:** riskklass -0.017 (t -0.29), 95 % [-0.136; +0.101] | betyg +0.515 (t 15.53) | per ar: riskklass -0.21 pp, betyg +6.18 pp | kvot riskklass/betyg -0.03
+
+**H2a 2018-2022 (SRRI), manadseffekt** (70356 fondmanader, 1454 fonder). Flode i procent per manad, bas betyg 1 och riskklass 4.
+| Variabel | Koef. | t |
+|---|---|---|
+| s_2 | +0.199 | 1.55 |
+| s_3 | +0.263 | 2.00 |
+| s_4 | +0.814 | 5.71 |
+| s_5 | +1.796 | 9.69 |
+| k_2 | -0.801 | -0.91 |
+| k_3 | +0.791 | 0.88 |
+| k_5 | +0.073 | 0.15 |
+| k_6 | +0.040 | 0.09 |
+| k_7 | +0.723 | 1.32 |
+| unad_a | +0.819 | 12.10 |
+| sd60 | -0.085 | -1.43 |
+Gemensamt test riskklassdummies: chi2 11.53, df 5, p 0.042
+**H2b 2018-2022 (SRRI), manadseffekt, linjar:** riskklass +0.019 (t 0.23), 95 % [-0.146; +0.184] | betyg +0.484 (t 10.86) | per ar: riskklass +0.23 pp, betyg +5.81 pp | kvot riskklass/betyg +0.04
+
+**H2a 2023-2025 (SRI), manadseffekt** (49242 fondmanader, 1663 fonder). Flode i procent per manad, bas betyg 1 och riskklass 4.
+| Variabel | Koef. | t |
+|---|---|---|
+| s_2 | +0.034 | 0.21 |
+| s_3 | +0.371 | 2.39 |
+| s_4 | +1.067 | 6.44 |
+| s_5 | +2.415 | 11.08 |
+| k_2 | +0.270 | 0.62 |
+| k_3 | -0.208 | -0.94 |
+| k_5 | +0.063 | 0.66 |
+| k_6 | +0.184 | 0.81 |
+| unad_a | +0.787 | 15.43 |
+| sd60 | -0.134 | -2.78 |
+Gemensamt test riskklassdummies: chi2 2.40, df 4, p 0.664
+**H2b 2023-2025 (SRI), manadseffekt, linjar:** riskklass +0.062 (t 0.77), 95 % [-0.095; +0.219] | betyg +0.639 (t 14.64) | per ar: riskklass +0.74 pp, betyg +7.67 pp | kvot riskklass/betyg +0.10
+
+Verifiering: inplanterad +0,100 per riskklass ger +0.1256 (vantat +0.1256)

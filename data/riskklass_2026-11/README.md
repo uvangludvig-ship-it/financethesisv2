@@ -6,6 +6,8 @@ Data till riskklassuppsatsen (Evans & Sun, Ben-David, UK–EU), kopierad från A
 |---|---|
 | `morningstar_direct/` | Direct-exporter (thesis, kostnad, SFDR, glober, UK–EU), faktorer, Riksbank, byggda paneler (.pkl) och körskript per test |
 | `morningstar_direct/exporter_2026-11-18/` | Direct-exporterna från 18–19 nov (USA 1991–2011 och Europa), gzippade. `pd.read_csv` läser .gz direkt |
+| `morningstar_direct/bas_eu_2026-11-19/` | Europeisk basdata: alla LU- och IE-klasser, överlevande (A1–A3); nedlagda (grupp B) läggs till. Gzippade oförändrade Direct-exporter |
+| `morningstar_direct/analys_eu_2026-11-19/` | Skript och utdata för sicksacken, UK mot EU, kanaltesten och Ben-David på EU med hästkapplöpningen (19 nov 2026). Se mappens README för körordning |
 | `shof/riskklass_resultat/` | SHoF-data bearbetad: bas, sek, riskmått, privatklasser (val_monthly), rips_stats |
 | `shof/bestallning_privatklasser/` | Beställningslistan till SHoF |
 | `ovrigt/` | F-F momentum, ECB växelkurser, Master-Weblist, norska personkunder, fyra små Direct-exporter |

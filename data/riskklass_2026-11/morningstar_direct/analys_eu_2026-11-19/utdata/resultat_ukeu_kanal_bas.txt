@@ -1,0 +1,63 @@
+
+================ NIVA 2 (HUVUDNIVA) ================
+  K2 HISTORISK AVKASTNING (P = rang 0-1 av 12 man avkastning inom kategori; pp/ar fran samst till bast)
+    b2: Efter x EU x P (huvudtal)                      -4.85  SE 6.28  t -0.77  95 % [-17.15;  +7.46]  MDE 17.6  stjarnor [-3.57; +1.55]  fonder 445  obs 41526
+    b1 (EU-sidans extra kanslighet fore): +3.70 (SE 5.68)
+    Beskrivande kanslighet (fond x sida, sida x manad): EU_fore +25.34 (6.57) | EU_efter +17.59 (3.64) | UK_fore +21.88 (5.23) | UK_efter +20.63 (3.85)
+    K2a utan ANCOVA                                    -5.02  SE 6.50  t -0.77  95 % [-17.75;  +7.72]  MDE 18.2  stjarnor [-3.69; +1.60]  fonder 445  obs 41526
+    K2b P over 36 manader                              +4.28  SE 5.82  t +0.74  95 % [ -7.12; +15.68]  MDE 16.3  stjarnor [-1.48; +3.26]  fonder 441  obs 37610
+    K2c latsasbyte jan 2021                            -7.11  SE 9.15  t -0.78  95 % [-25.05; +10.83]  MDE 25.6  stjarnor [-5.21; +2.25]  fonder 291  obs 26184
+    K2d Efter x EU x stjarna (per stjarna)             +0.95  SE 1.64  t +0.57  95 % [ -2.28;  +4.17]  MDE  4.6  stjarnor [-0.47; +0.87]  fonder 393  obs 33518
+    K2e EU x P per ar (bas 2022): 2021 -2.05 (5.10) | 2023 -11.10 (6.69) | 2024 -0.75 (6.92)
+  K3 KOSTNADER
+    d: Efter x EU x omsattning (rang 0-1)              -2.61  SE 5.80  t -0.45  95 % [-13.97;  +8.74]  MDE 16.2  stjarnor [-2.90; +1.82]  fonder 213  obs 20266
+    e: Efter x EU x kostnadskvot (per procentenhet): +2.24 (SE 2.53, t +0.89) | fonder 213
+    K3a bara omsattning                                -1.49  SE 5.06  t -0.30  95 % [-11.41;  +8.42]  MDE 14.2  stjarnor [-2.37; +1.75]  fonder 271  obs 25800
+    K3a bara kostnadskvot                              +2.01  SE 1.59  t +1.26  95 % [ -1.11;  +5.13]  MDE  4.5  stjarnor [-0.23; +1.07]  fonder 350  obs 33262
+    K3b latsas jan 2021: omsattning                    +3.53  SE 7.19  t +0.49  95 % [-10.56; +17.61]  MDE 20.1  stjarnor [-2.20; +3.66]  fonder 140  obs 13350
+    K3b latsas: kostnadskvot +3.91 (SE 3.13)
+    K3c utan ANCOVA: omsattning                        -6.42  SE 8.94  t -0.72  95 % [-23.93; +11.10]  MDE 25.0  stjarnor [-4.98; +2.31]  fonder 213  obs 20266
+    K3c utan ANCOVA: kostnadskvot -1.70 (SE 4.00)
+  VERIFIERING K2: inplanterad -4,00 ger -8.846 (vantat -8.846)
+
+================ NIVA 1 ================
+  K2 HISTORISK AVKASTNING (P = rang 0-1 av 12 man avkastning inom kategori; pp/ar fran samst till bast)
+    b2: Efter x EU x P (huvudtal)                      +9.63  SE 11.09  t +0.87  95 % [-12.11; +31.37]  MDE 31.1  stjarnor [-2.52; +6.52]  fonder 159  obs 14714
+    b1 (EU-sidans extra kanslighet fore): -8.12 (SE 9.94)
+    Beskrivande kanslighet (fond x sida, sida x manad): EU_fore +19.55 (8.76) | EU_efter +21.21 (6.29) | UK_fore +20.35 (9.24) | UK_efter +20.60 (7.01)
+    K2a utan ANCOVA                                    +4.95  SE 12.05  t +0.41  95 % [-18.67; +28.58]  MDE 33.8  stjarnor [-3.88; +5.94]  fonder 159  obs 14714
+    K2b P over 36 manader                             +14.95  SE 12.42  t +1.20  95 % [ -9.39; +39.29]  MDE 34.8  stjarnor [-1.95; +8.17]  fonder 157  obs 12848
+    K2c latsasbyte jan 2021                           +18.46  SE 15.74  t +1.17  95 % [-12.40; +49.32]  MDE 44.1  stjarnor [-2.58; +10.25]  fonder 85  obs 7462
+    K2d Efter x EU x stjarna (per stjarna)             +1.68  SE 3.76  t +0.45  95 % [ -5.69;  +9.05]  MDE 10.5  stjarnor [-1.18; +1.88]  fonder 139  obs 11528
+    K2e EU x P per ar (bas 2022): 2021 -12.84 (10.56) | 2023 +0.42 (12.38) | 2024 +4.12 (11.83)
+  K3 KOSTNADER
+    d: Efter x EU x omsattning (rang 0-1)              -1.47  SE 13.31  t -0.11  95 % [-27.56; +24.61]  MDE 37.3  stjarnor [-5.73; +5.12]  fonder 74  obs 7028
+    e: Efter x EU x kostnadskvot (per procentenhet): -6.57 (SE 5.30, t -1.24) | fonder 74
+    K3a bara omsattning                                +3.26  SE 12.33  t +0.26  95 % [-20.89; +27.42]  MDE 34.5  stjarnor [-4.34; +5.70]  fonder 87  obs 8254
+    K3a bara kostnadskvot                              -0.67  SE 3.63  t -0.19  95 % [ -7.80;  +6.45]  MDE 10.2  stjarnor [-1.62; +1.34]  fonder 131  obs 12428
+    K3b latsas jan 2021: omsattning                    +7.88  SE 13.37  t +0.59  95 % [-18.33; +34.09]  MDE 37.4  stjarnor [-3.81; +7.09]  fonder 36  obs 3428
+    K3b latsas: kostnadskvot +9.00 (SE 5.56)
+    K3c utan ANCOVA: omsattning                       -16.98  SE 20.71  t -0.82  95 % [-57.58; +23.61]  MDE 58.0  stjarnor [-11.97; +4.91]  fonder 74  obs 7028
+    K3c utan ANCOVA: kostnadskvot -7.63 (SE 8.46)
+  VERIFIERING K2: inplanterad -4,00 ger +5.632 (vantat +5.632)
+
+================ NIVA 3 ================
+  K2 HISTORISK AVKASTNING (P = rang 0-1 av 12 man avkastning inom kategori; pp/ar fran samst till bast)
+    b2: Efter x EU x P (huvudtal)                      -5.80  SE 2.88  t -2.01  95 % [-11.45;  -0.15]  MDE  8.1  stjarnor [-2.38; -0.03]  fonder 1387  obs 129222
+    b1 (EU-sidans extra kanslighet fore): -1.69 (SE 2.35)
+    Beskrivande kanslighet (fond x sida, sida x manad): EU_fore +21.23 (3.87) | EU_efter +16.46 (2.70) | UK_fore +22.74 (3.91) | UK_efter +24.11 (2.47)
+    K2a utan ANCOVA                                    -6.43  SE 3.13  t -2.05  95 % [-12.56;  -0.29]  MDE  8.8  stjarnor [-2.61; -0.06]  fonder 1387  obs 129222
+    K2b P over 36 manader                              -1.30  SE 2.83  t -0.46  95 % [ -6.83;  +4.24]  MDE  7.9  stjarnor [-1.42; +0.88]  fonder 1368  obs 116366
+    K2c latsasbyte jan 2021                            +2.63  SE 3.95  t +0.66  95 % [ -5.12; +10.37]  MDE 11.1  stjarnor [-1.06; +2.16]  fonder 1090  obs 97638
+    K2d Efter x EU x stjarna (per stjarna)             +0.05  SE 0.70  t +0.07  95 % [ -1.32;  +1.41]  MDE  1.9  stjarnor [-0.27; +0.29]  fonder 1217  obs 103986
+    K2e EU x P per ar (bas 2022): 2021 +5.24 (2.53) | 2023 -4.10 (2.89) | 2024 -1.76 (2.96)
+  K3 KOSTNADER
+    d: Efter x EU x omsattning (rang 0-1)              +2.81  SE 2.85  t +0.99  95 % [ -2.77;  +8.39]  MDE  8.0  stjarnor [-0.57; +1.74]  fonder 683  obs 65228
+    e: Efter x EU x kostnadskvot (per procentenhet): +0.19 (SE 1.39, t +0.14) | fonder 683
+    K3a bara omsattning                                +2.23  SE 2.49  t +0.89  95 % [ -2.66;  +7.12]  MDE  7.0  stjarnor [-0.55; +1.48]  fonder 865  obs 82662
+    K3a bara kostnadskvot                              +1.76  SE 0.91  t +1.93  95 % [ -0.03;  +3.55]  MDE  2.6  stjarnor [-0.01; +0.74]  fonder 1099  obs 104794
+    K3b latsas jan 2021: omsattning                    +2.68  SE 3.38  t +0.79  95 % [ -3.94;  +9.30]  MDE  9.5  stjarnor [-0.82; +1.93]  fonder 580  obs 55418
+    K3b latsas: kostnadskvot -1.06 (SE 1.45)
+    K3c utan ANCOVA: omsattning                        +1.76  SE 4.33  t +0.41  95 % [ -6.73; +10.25]  MDE 12.1  stjarnor [-1.40; +2.13]  fonder 683  obs 65228
+    K3c utan ANCOVA: kostnadskvot +1.60 (SE 1.83)
+  VERIFIERING K2: inplanterad -4,00 ger -9.803 (vantat -9.803)
