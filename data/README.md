@@ -10,7 +10,7 @@ Data som inte hör till ett visst ämne, kopierad 17 nov 2026 från `~/dev/finan
 
 Varje mapp under `raw/` har en egen `README.md` med filer, kolumner och kända egenheter, liksom `derived/` och `build/`. Dessa README-filer är vår dokumentation, inte källfiler.
 
-**Licenser:** LSEG-, MSCI- (indexserierna `.dMI…`) och SHoF-data är licensierade. Repot ska vara privat. Data från FI, Pensionsmyndigheten och AP-fonderna är offentlig.
+**Licenser:** LSEG-, MSCI- (indexserierna `.dMI…`), Morningstar- och SHoF-data är licensierade. Repot ska vara privat. Data från FI, Pensionsmyndigheten och AP-fonderna är offentlig.
 
 ## raw/: källor
 
@@ -23,6 +23,7 @@ Varje mapp under `raw/` har en egen `README.md` med filer, kolumner och kända e
 | `ppm/` | Pensionsmyndighetens månadsstatistik per fond (xls/xlsm i årsmappar), fondlista 2026 (`Lista alla fonder 2026.xls`), dagliga fondkurser jan–mar 2024 (`ppm_nav_2024.xlsx`) och `FEES.txt`, som är Morningstar-avgifter från SHoF och inte från Pensionsmyndigheten | 2001-01 till 2026-08 | sep–okt 2026 | 311 filer |
 | `shof/` | Swedish House of Finance: Morningstars fondregister (`fundmaster.xlsx`, samma innehåll zippat i `shof_fundmaster.zip`) och fältdefinitioner (pdf och txt) | | okt 2026 | SHoF:s dagliga exporter (`Valuations/`, `Reinvestments/`, flera GB) ligger inte i repot. Alexander har dem; de läggs på exakt de sökvägarna om de behövs |
 | `ap/` | AP1–AP4:s publicerade innehavslistor (111 pdf) i `AP1/`…`AP4/`, hämtlogg och insamlingslogg (`INSAMLINGSLOGG_2026-10-31.md`, `_collection_20261031/`) | listor 2015–2026 | 31 okt 2026 | AP1 har bara två listor (2025) |
+| `morningstar/` | Morningstar-export `226F9EC4243A44408972432B3BA329CB(in).csv`: 29 196 avvecklade öppna andelsklasser (7 139 fonder) med säte i Luxemburg eller Irland, 551 kolumner: statiska uppgifter samt månadsavkastning (USD), förmögenhet (USD), Morningstar-betyg och SRI per månad. Git LFS | avkastning 2013-01–2025-12, övriga månadsserier 2017-12–2025-12; avvecklade 2022–2025 | 19 nov 2026 | Bara avvecklade andelsklasser, inga levande. De sista 13 raderna är Morningstars sammanfattningsstatistik, se `raw/morningstar/README.md` |
 
 ## derived/: byggt ur raw
 

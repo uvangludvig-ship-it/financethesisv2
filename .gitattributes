@@ -1,3 +1,4 @@
 # Files over 50 MB go through Git LFS
 data/raw/lseg/**/*.parquet filter=lfs diff=lfs merge=lfs -text
 data/derived/fi/*.gz filter=lfs diff=lfs merge=lfs -text
+data/raw/morningstar/*.csv filter=lfs diff=lfs merge=lfs -text

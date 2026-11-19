@@ -39,7 +39,7 @@ reference/          läsmaterial; översikt i reference/README.md
   non_winners/      de 635 övriga kandidatuppsatserna i finans 2009–2026 som text, med index
 data/               data som inte hör till ett visst ämne; översikt i data/README.md
   raw/              källfilerna, en mapp per källa med egen README.md
-                    (lseg, fi, fi_short, ppm, shof, ap)
+                    (lseg, fi, fi_short, ppm, shof, ap, morningstar)
   derived/          tabeller byggda ur raw/ (README.md beskriver kolumnerna)
   build/            skripten som hämtar och bygger (README.md)
 AI_LOG.md           kursens krav: varje AI-användning loggas samma dag
