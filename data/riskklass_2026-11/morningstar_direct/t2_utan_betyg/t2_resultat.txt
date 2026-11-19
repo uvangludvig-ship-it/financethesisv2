@@ -1,0 +1,26 @@
+
+A (huvud): fond + manad x kategori  (fonder 2916, obs 146170, utan betyg 18355)
+  stjarna (positiv kontroll)         +4.83 [ +4.00;  +5.65]  t +11.47
+  klass, med betyg (b_m)             -0.59 [ -1.96;  +0.78]  t -0.85
+  klass, utan betyg (b_u)            -0.13 [ -2.55;  +2.29]  t -0.10
+  skillnad b_u - b_m                 +0.46 [ -1.72;  +2.64]  t +0.42
+
+B: manad x kategori  (fonder 2916, obs 146170, utan betyg 18355)
+  stjarna (positiv kontroll)         +3.47 [ +2.91;  +4.04]  t +12.01
+  klass, med betyg (b_m)             -0.54 [ -1.67;  +0.58]  t -0.94
+  klass, utan betyg (b_u)            +0.20 [ -1.67;  +2.07]  t +0.21
+  skillnad b_u - b_m                 +0.74 [ -0.98;  +2.46]  t +0.85
+
+Tillagg 2, spec A: utan betyg, yngre an 36 man (8623 obs) och ovriga (9732 obs)
+  klass, utan betyg, yngre an 36     -0.20 [ -3.00;  +2.60]  t -0.14
+  klass, utan betyg, ovriga          -0.16 [ -3.23;  +2.92]  t -0.10
+
+Tillagg 2, spec B: utan betyg, yngre an 36 man (8623 obs) och ovriga (9732 obs)
+  klass, utan betyg, yngre an 36     -1.03 [ -3.45;  +1.39]  t -0.83
+  klass, utan betyg, ovriga          +1.40 [ -0.76;  +3.57]  t +1.27
+
+Tillagg 3, spec A: utan fonder som aldrig har betyg  (fonder 2693, obs 138995, utan betyg 11180)
+  stjarna (positiv kontroll)         +4.86 [ +4.04;  +5.69]  t +11.53
+  klass, med betyg (b_m)             -0.40 [ -1.79;  +0.98]  t -0.57
+  klass, utan betyg (b_u)            +0.23 [ -2.31;  +2.78]  t +0.18
+  skillnad b_u - b_m                 +0.64 [ -1.60;  +2.88]  t +0.56

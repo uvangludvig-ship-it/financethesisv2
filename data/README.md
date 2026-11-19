@@ -61,3 +61,7 @@ Följande finns i `~/dev/financethesis/data/` men är inte överfört, eftersom 
 - `raw/omxsb_extension_20261031/`, `raw/anchor_*`, `raw/deep_dd_*`, `derived/anchor_*`, `derived/deep_dd_*`, `derived/ccc13_*`: underlag för gamla alternativ
 
 Den fullständiga beskrivningen av varje fil, med hashar, finns i `~/dev/financethesis/data/MANIFEST.md`.
+
+## riskklass_2026-11/
+
+Data till riskklassuppsatsen (Morningstar Direct-exporter, SHoF bearbetat, faktorer), tillagd 19 nov 2026. Hör till ett ämne, till skillnad från resten av `data/`. Se `riskklass_2026-11/README.md`.

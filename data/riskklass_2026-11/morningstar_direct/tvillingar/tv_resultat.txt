@@ -1,0 +1,26 @@
+Urval: 54814 fondmanader, 962 fonder, 109628 klassmanader
+
+Kolumn 1: manad x kategori, avkastningskontroller (klassmanader 93592, fonder 896)
+  egen stjarna                                   +0.74 [ -0.18;  +1.67]  t +1.57   (+0.062 % per manad)
+    (utan avkastningskontroller)                 +4.20 [ +3.41;  +4.99]  t +10.44   (+0.350 % per manad)
+
+Kolumn 2 (HUVUD): fond x manad + klass (fonder 962)
+  egen stjarna                                   +0.58 [ -1.28;  +2.44]  t +0.61   (+0.048 % per manad)
+  kvot kolumn 2 / kolumn 1: 0.78   | ovre grans kolumn 2: +2.44 mot halva kolumn 1: +0.37
+
+Kolumn 3: + klasstyp x manad, institutionell x avkastning 12 man (klassmanader 98334)
+  egen stjarna                                   +0.64 [ -1.35;  +2.62]  t +0.63   (+0.053 % per manad)
+
+Kolumn 4: flodesskillnad privat minus inst pa stjarngap (bas: lika), par + manad
+  gap -2 eller lagre (privat farre)              -4.19 [ -9.99;  +1.61]  t -1.42   (-0.349 % per manad)
+  gap -1                                         -1.17 [ -3.37;  +1.02]  t -1.05   (-0.098 % per manad)
+  gap +1                                         -1.52 [ -7.54;  +4.50]  t -0.50   (-0.127 % per manad)
+  gap +2 eller hogre (privat fler)               -5.63 [-20.67;  +9.41]  t -0.73   (-0.469 % per manad)
+
+Kolumn 5: flodesskillnaden pa var klass stjarna for sig, par + manad
+  privatklassens stjarna (b_privat)              +0.46 [ -1.60;  +2.53]  t +0.44   (+0.038 % per manad)
+  institutionellas stjarna (= -b_inst)           -1.08 [ -3.12;  +0.96]  t -1.03   (-0.090 % per manad)
+
+Handelsestudie: privatklassens stjarna andras, tvillingens oforandrad +-3 man: hojningar 1350, sankningar 1438
+  hojd stjarna: summa manad 0-12 +1.07 pp av formogenheten [-1.82; +3.96] t +0.72 | fore (manad -6 till -2) +0.99 (se 0.67)
+  sankt stjarna: summa manad 0-12 -1.27 pp av formogenheten [-3.97; +1.42] t -0.92 | fore (manad -6 till -2) -1.08 (se 0.63)

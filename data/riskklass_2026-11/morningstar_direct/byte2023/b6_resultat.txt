@@ -1,0 +1,11 @@
+Urval: 1214 klasser, 1214 fonder, 28699 klassmanader 2022-2023. Dos: {0.0: 114, 1.0: 643, 2.0: 457}
+
+S (HUVUD): Efter x Dos, klass + manad x kategori + Efter x gammal klass. pp/ar per steg siffran foll
+  Efter x Dos                              -1.44  SE 1.97  t -0.73  95 % [ -5.32;  +2.43]  | med latsasarens spridning 1.9: [ -5.32;  +2.43]
+
+M (sido): Efter x Dos, klass + manad x kategori + Efter x polynom i volatilitet
+  Efter x Dos                              -1.74  SE 1.62  t -1.07  95 % [ -4.91;  +1.44]  | med latsasarens spridning 2.4: [ -6.44;  +2.97]
+
+Positiv kontroll: S med klassens stjarna (klasser 1114, obs 25031, stjarnbyten i fonstret 3456)
+  Efter x Dos                              -1.88  SE 2.13  t -0.88  95 % [ -6.06;  +2.30]
+  stjarna, per stjarna                     +0.97  SE 0.86  t +1.12  95 % [ -0.72;  +2.66]
