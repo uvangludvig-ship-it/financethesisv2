@@ -1,0 +1,303 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=2.3cm]{geometry}
+\usepackage{booktabs,graphicx,amsmath,amssymb,array,caption,enumitem,xcolor}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+\sloppy\emergencystretch=4em
+\captionsetup{font=small,labelfont=bf,justification=justified,singlelinecheck=false}
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}
+\newcommand{\kalla}[1]{\par\noindent\textbf{Källa:} #1\par}
+\newcommand{\raknas}{\par\noindent\textbf{Så räknas den.} }
+\newcommand{\visar}{\par\noindent\textbf{Vad den visar.} }
+\newcommand{\kod}[1]{\texttt{#1}}
+\newcommand{\BD}{Ben-David m.fl.\ (2022)}
+\newcommand{\ACF}{Adelino m.fl.\ (2017)}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Slutligt underlag: tabeller, figurer och formler}\\[3pt]
+{\large BE451, Alexander Fox och Ludvig Pauli Uväng}\\[3pt]
+Byggt 20 november 2026 med \kod{final\_code/kor\_allt.sh}
+\end{center}
+
+\section*{Läs detta först}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item Dokumentet samlar det som kan stå i uppsatsen: sex tabeller, fyra figurer och bilaga A1 till A7. Efter varje tabell står hur den är räknad, formeln och källan.
+\item \textbf{Inget eget test finns med.} Varje test är ankarets (Ben-David m.fl.\ 2022) eller Adelino m.fl.\ (2017), ur artikeln eller författarnas kod. Det som ändå saknar förlaga står samlat i sista avsnittet.
+\item Alla tal är körda av AI (Claude). Ingen av författarna har kört om något. Tabellerna skrivs av koden ur \kod{final\_result/tal/}; inga tal är inskrivna för hand utom ankarets egna.
+\item Tabeller, figurer och tabelltexter är på engelska så att de kan lyftas in. Förklaringarna är på svenska.
+\item Där ankarets kod och tryckta text skiljer sig följer vi koden (beslut 20 november); skillnaderna står i avsnitt~\ref{sec:avvik}.
+\end{itemize}
+
+\section*{Struket 20 november: egna test}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item Betyg $\times$ Efter $\times$ Äldre för 2006 (tidigare tabell 3, panel C), i alla tre varianter.
+\item Samma fonder före och efter 2006.
+\item Uppdelningen på fondens ålder i testen av 2006, och kravet på minst 200 fonder för jämförelseår.
+\item ``Sicksacken'' (polynom i volatilitet och flöde före bytet), låtsasbytet januari 2021, fem och tjugo volatilitetsgrupper, inplanterad effekt.
+\item Risksiffran inom kategori och uppdelad på perioderna före och efter 2023.
+\item Betyget mätt vid slutet av månad $t-1$.
+\item Testen i Reuter och Zitzewitz form.
+\end{itemize}
+
+\section*{Ändrat mot tidigare rapporterade tal}
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \textbf{Ankarets tabell 2 (bilaga A2) var fel uppställd.} Kolumn 2 till 5 har rå avkastning och ett mått till i samma regression. Tidigare kördes en regression per mått. Rättat. Kolumn 1 är oförändrad (0,156).
+\item \textbf{Figur 3.} Det kommande betyget hämtas ur urvalet i händelsemånaden, som i koden. USA, 5 mot 1: 1,82 (var 1,53); 4--5 mot 1--2: 2,64 (var 2,61). Europa 2006, 5 mot 1: 3,05 (var 3,01); 4--5 mot 1--2: 0,72 (var 0,78).
+\item \textbf{Tabell 3, panel B.} Andelen räknas över alla fondmånader mot fondens föregående rad, som i koden: 19,0 / 45,8 / 15,3 (var 18,4 / 45,8 / 15,0).
+\item \textbf{Tabell 5.} Observationer som är ensamma i sin grupp tas bort, som \kod{reghdfe} gör: 0,0038 före (var 0,0040).
+\item \textbf{Tabell 6.} Flödet winsoriseras vid 1/99 som hos ankaret (var 2,5/97,5), och standardfelen klustras på fond som hos Adelino m.fl.\ (var det större av två). Huvudtalet är $+0{,}01$ (0,82) (var $+0{,}07$ (0,69)); stjärnan 5,99 (var 5,29).
+\end{enumerate}
+
+\section{Källor till formler och metoder}\label{sec:kallor}
+\begin{description}[leftmargin=1.6cm,style=nextline,itemsep=2pt]
+\item[{[BD]}] Ben-David, I., J. Li, A. Rossi och Y. Song (2022). What Do Mutual Fund Investors Really Care About? \textit{Review of Financial Studies} 35(4), 1723--1774. Tryckt version, läst i sin helhet. Sidnummer nedan avser trycket.
+\item[{[BD-kod]}] Författarnas kod till [BD] (SAS och Stata), filen \kod{11.docx}. Hänvisningar anger kodens egna rubriker.
+\item[{[ACF]}] Adelino, M., I. Cunha och M. A. Ferreira (2017). The Economic Effects of Public Financing: Evidence from Municipal Bond Ratings Recalibration. \textit{Review of Financial Studies} 30(9), 3223--3268. Tryckt version. Lästa av Claude i denna körning: s.~3236--3237 och 3242--3245 (ekvation~1, tabell 3 och 5, figur 4). Hela artikeln är läst i arbetsversion av en annan session (\kod{NOTIS\_sex\_artiklar\_lasta\_i\_sin\_helhet\_2026-11-20}).
+\item[{[BHO]}] Barber, B. M., X. Huang och T. Odean (2016). Which Factors Matter to Investors? Evidence from Mutual Fund Flows. \textit{Review of Financial Studies} 29(10), 2600--2642. \textbf{Inte läst.} Används bara så som [BD] och [BD-kod] återger den (ekvation 5, avtagande vikter).
+\item[{[FM]}] Fama, E. F. och J. D. MacBeth (1973). Risk, Return, and Equilibrium: Empirical Tests. \textit{Journal of Political Economy} 81(3), 607--636. \textbf{Inte läst.} Metoden används så som [BD] beskriver den (bilaga B.3, s.~1767; tabell 6, s.~1761).
+\item[{[CGM]}] Cameron, A. C., J. B. Gelbach och D. L. Miller (2011). Robust Inference with Multiway Clustering. \textit{Journal of Business \& Economic Statistics} 29(2), 238--249. \textbf{Inte läst.} Formeln är den som Statas \kod{reghdfe} använder i [BD-kod].
+\end{description}
+
+\section{Data}
+Alla filer ligger under \kod{data/riskklass\_2026-11/morningstar\_direct/} i repot. Datan är licensierad (Morningstar Direct, LSEG); repot ska vara privat.
+
+{\small\begin{tabular}{@{}p{2.6cm}p{7.2cm}p{5.6cm}@{}}
+\toprule
+Urval & Fil & Innehåll \\
+\midrule
+USA 1991--2011 & \kod{exporter\_2026-11-18/} \kod{BA37C8D4\ldots csv.gz} & Morningstar Direct: amerikanska aktiefonder, avkastning, förmögenhet per andelsklass, betyg \\
+Europa 2013--2025 & \kod{bas\_eu\_2026-11-19/A1, A2, A3, B1, B2} & Morningstar Direct: andelsklasser i Luxemburg och Irland, levande och nedlagda, med risksiffra (SRRI-historik, SRI) \\
+Europa 1998--2016 & \kod{eu2006\_lseg\_bank\_2026-11-20/} \kod{radata/} & Morningstar Direct (två exporter) och fondförmögenhet ur LSEG 2002--2008 \\
+Faktorer & \kod{faktorer/}, \kod{analys\_usa\_2026-11-18/} & Kenneth Frenchs datasamling: USA, Developed, Europe \\
+\bottomrule
+\end{tabular}}
+
+\begin{table}[H]
+\caption{Summary statistics. Fund-month observations. Flow is the monthly net flow in percent of the fund's assets a month earlier. The return measures are 18-month exponentially weighted averages of monthly excess returns and alphas, in percent per month. CS SD is the average of the monthly cross-sectional standard deviations (Panel D: the pooled standard deviation). The last three columns give the values in Table 1 of Ben-David et al.\ (2022).}
+\centering\resizebox{\textwidth}{!}{\input{tabeller/tabell1.tex}}
+\end{table}
+\raknas Medel, percentiler och spridning på fondmånader efter alla urvalssteg. CS SD är medelvärdet av månadens standardavvikelse över fonder.
+\kalla{[BD] tabell 1, s.~1734; [BD-kod] ``Code and Output for: Table 1. Sample Summary Statistics''. Kod: \kod{lib/ankartest.py:table1}.}
+
+\section{Variabler och formler}\label{sec:var}
+\textbf{Flöde.} För andelsklass $c$ i månad $t$, med förmögenhet $NA$ och avkastning $R$:
+\begin{equation}
+\text{DF}_{c,t}=NA_{c,t}-NA_{c,t-1}(1+R_{c,t}),\qquad
+F_{p,t}=100\cdot\frac{\sum_{c\in p}\text{DF}_{c,t}}{\sum_{c\in p}NA_{c,t-1}} .
+\end{equation}
+Summan går över fondens klasser med förmögenhet båda månaderna. Exempel: 100 MUSD förra månaden, 5~\% avkastning och 110 MUSD nu ger $\text{DF}=110-105=5$ och $F=5~\%$.
+\kalla{[BD] ekvation 1, s.~1733: $F_{p,t}=TNA_{p,t}/TNA_{p,t-1}-(1+R_{p,t})$. Andelsklasser läggs ihop till fond eftersom de äger samma portfölj ([BD] s.~1732).}
+
+\textbf{Urval.} Fonden ska ha minst 10 MUSD månaden före. Indexfonder ingår inte. Alla variabler winsoriseras vid 1:a och 99:e percentilen inom varje månad.
+\kalla{[BD] s.~1733.}
+
+\textbf{Betyg.} Fondens betyg är det förmögenhetsvägda medelvärdet av klassernas Morningstar Rating Overall, avrundat till heltal 1--5. Betyget mäts vid slutet av månad $t$, som i [BD-kod].
+
+\textbf{Avkastningssignaler.} Betor skattas varje månad på de 60 föregående månaderna (minst 36 observationer). Månadens alfa är överavkastningen minus beta gånger faktoravkastningen. Signalen är ett vägt medel över de 18 föregående månaderna:
+\begin{equation}
+\text{ALPHA}_{p,t}=\frac{\sum_{s=1}^{18}e^{-\lambda(s-1)}\,\alpha_{p,t-s}}{\sum_{s=1}^{18}e^{-\lambda(s-1)}},\qquad \lambda=0{,}20551497 .
+\end{equation}
+Fem mått: rå överavkastning (utan faktorer), marknadsjusterad, CAPM, Fama-French tre faktorer (FF3) och Carhart fyra faktorer (FFC).
+\kalla{[BD] s.~1733 och bilaga A.2, s.~1764--1765 (ekvation A.2 och A.3, vikterna och $\lambda$ på s.~1765); [BD-kod] ``INITIAL STEP: SETUP PRIMARY DATASET'' (\kod{\%let n\_years = 5}, \kod{\%let min\_mm = 36}, \kod{\%let Lambda = 0.20551497}, ``Apply BHO-style weighting of past returns''). Vikterna kommer ur [BHO] ekvation 5 enligt [BD]. Kod: \kod{bygg/usa\_panel.py}, \kod{bygg/eu\_5\_fondpanel.py}.}
+
+\textbf{Standardfel.} Klustrade på fond och månad: $V=V_{\text{fond}}+V_{\text{månad}}-V_{\text{fond}\times\text{månad}}$.
+\kalla{[BD] tabell 3, not, s.~1744 (``clustered by fund and month''); [BD-kod] \kod{vce(cluster yyyymm fundid2)}; formeln i [CGM]. Kod: \kod{lib/stat.py:ols}.}
+
+\section{Följer flödena stjärnan?}
+\begin{table}[H]
+\caption{Flows, star ratings and past returns. Panel A follows Table 3 of Ben-David et al.\ (2022). Each month the funds with five stars are compared with an equal number of top funds by each return measure. The coefficient is $b_1$ in a regression of monthly flow (percent of assets) on the difference between the two top-fund indicators and an indicator for being top-ranked by either; it equals half the difference in flow between funds that only the first and only the second measure rank at the top. $t$-statistics, in parentheses, use standard errors clustered by fund and month. Panel B follows their Figure 3: the $R^2$ of a regression of flow on month effects, the 18-month raw return and star-rating indicators, minus the $R^2$ without the block named. Samples: United States July 1997 to December 2011; Europe January 2018 to December 2025.}
+\centering\input{tabeller/tabell2.tex}
+\end{table}
+\raknas Panel A. $\text{Top}^A_{p,t}=1$ om fonden har fem stjärnor (eller hör till de $n_t$ bästa på mått $A$, där $n_t$ är antalet femstjärniga fonder den månaden).
+\begin{equation}
+F_{p,t}=a+b_1\big(\text{Top}^A_{p,t}-\text{Top}^B_{p,t}\big)+b_2\max\big(\text{Top}^A_{p,t},\text{Top}^B_{p,t}\big)+e_{p,t}.
+\end{equation}
+Ingen månadseffekt. Den andra regressorn definieras inte i den kod vi har (variabeln heter \kod{morn5\_e\_unad5}); vi läser den som ``toppklassad av någon av de två''. Valet påverkar inte $b_1$: de två toppgrupperna är lika stora varje månad, så skillnaden är okorrelerad med varje symmetrisk regressor (bilaga A4, andra tabellen). Ankarets tryckta tal är kodens $b_1$ (0,099 i trycket, 0,0009926 i kodens utskrift). Panel B: $R^2_{\text{marg}}(\text{block})=R^2(\text{allt})-R^2(\text{allt utom blocket})$.
+\kalla{Panel A: [BD] tabell 3, s.~1744, och figur 4, s.~1743 (lika många toppfonder som femstjärniga); [BD-kod] ``Table 3 (Flows to Top-Ranked Funds: Horse Races Between Performance Measures)'', raden \kod{reghdfe std\_floww morn\_gro5\_m\_unad\_gro5 morn5\_e\_unad5, noa vce(cluster yyyymm fundid2)}. Panel B: [BD] figur 3, s.~1741; [BD-kod] ``R\textasciicircum 2 regressions for Figure 3''. Kod: \kod{lib/ankartest.py:table3, fig3}.}
+\visar I USA slår stjärnan varje avkastningsmått, som hos ankaret men med större koefficienter. I Europa går stjärnan inte att skilja från rå avkastning eller CAPM. Alla tio par står i bilaga A1.
+
+\setcounter{figure}{1}
+\begin{figure}[H]
+\centering\includegraphics[width=\textwidth]{figurer/figur2.pdf}
+\caption{Flow per star by year. Each point is the coefficient on the star rating (1 to 5) in a regression of monthly flow (percent of assets) on the rating, the 18-month raw return and controls, with month effects, estimated year by year; bars are 95 percent intervals with standard errors clustered by fund and month. The shaded band is the range Ben-David et al.\ (2022) report for the United States (0.4 to 0.6 percent, p.~1748). Controls in the first and third panel: flow 19 months earlier, log size, log age, expense ratio, 60-month return volatility. The middle panel has the raw return as its only control.}
+\end{figure}
+\raknas För varje kalenderår: $F_{p,t}=b\cdot\text{Betyg}_{p,t}+c\cdot\text{ALPHA}^{\text{rå}}_{p,t}+\gamma'X_{p,t}+\mu_t+e_{p,t}$.
+\kalla{[BD] figur 5, panel A(b), s.~1747; [BD-kod] ``Regression for Panel A(b) of Figure 5'': \kod{reghdfe std\_floww100 rating retrf\_a lag19\_stdflow\_w99 lglagmtnaw\_w99 lgagew\_w99 portexpw\_w99 std\_ret\_60m\_w99 if yyyy == \ldots, a(yyyymm) vce(cluster fundid yyyymm)}. Kod: \kod{lib/ankartest.py:fig5a}.}
+
+\textbf{Samma regression i två perioder.} Figuren visar ett tal per år. Tabellen nedan skattar samma regression före och efter reformen och ger skillnaden med standardfel:
+\begin{equation}
+F_{p,t}=b\,\text{Betyg}_{p,t}+d\,\text{Betyg}_{p,t}\times\text{Efter}_t+\gamma'X_{p,t}+\delta'X_{p,t}\times\text{Efter}_t+\mu_t+e_{p,t}.
+\end{equation}
+$\text{Efter}_t=1$ månaderna efter händelsemånaden, annars 0. $X$ är rå avkastning och kontrollerna i figuren. $b$ är flödet per stjärna före, $b+d$ efter, och $d$ skillnaden, i procent av förmögenheten per månad. Standardfel i parentes, klustrade på fond och månad.
+\begin{center}\resizebox{0.95\textwidth}{!}{\input{tabeller/figur2_tal.tex}}\end{center}
+\kalla{Regressionen är den bakom [BD] figur 5, panel A(b) (se ovan), skattad på två perioder i stället för år för år. \textbf{Ankaret räknar inte ut skillnaden.} De läser av figuren och skriver att talet ligger mellan 0,4 och 0,6 hela perioden ([BD] s.~1748). Kod: \kod{lib/ankartest.py:fore\_efter}.}
+\visar I USA går skillnaden inte att skilja från noll ($-0{,}10$, $t=-1{,}58$), i linje med ankarets läsning. I Europa föll flödet per stjärna med 0,14 till 0,17 procentenheter i månaden efter oktober 2006, och fallet är säkerställt på 5~\% nivå i alla tre perioderna. \textbf{Testet har ingen jämförelsegrupp.} Allt annat som ändrades efter 2006, till exempel finanskrisen 2008, ligger i samma tal. Det visar att sambandet blev svagare, inte att betygsbytet orsakade det.
+
+\section{Etiketten eller det den mäter? Metodbyten}
+\setcounter{figure}{0}
+\begin{figure}[H]
+\centering\includegraphics[width=\textwidth]{figurer/figur1.pdf}
+\caption{Share of funds whose label differs from the month before. Left: Morningstar ratings of U.S. funds; Morningstar began rating within style categories in June 2002. Middle: Morningstar ratings of European funds; the marked month is October 2006. Right: the EU risk number; the Summary Risk Indicator replaced the Synthetic Risk and Reward Indicator on 1 January 2023.}
+\end{figure}
+
+\begin{table}[H]
+\caption{Two rating reforms in the form of Table 4 of Ben-David et al.\ (2022). The first row of each panel gives the share of fund-months in which the fund's rating differs from its previous observation in the sample. ``Explained by month $\times$ rating'' is the $R^2$ of a regression of flow on the 18-month raw return with month-by-rating effects, minus the $R^2$ with month effects only; ``category beyond rating'' adds month-by-category effects to month-by-rating effects. The event month counts as before. Panel A: Morningstar began rating U.S. funds within style categories in June 2002. Panel B: European funds, October 2006.}
+\centering\resizebox{\textwidth}{!}{\input{tabeller/tabell3.tex}}
+\end{table}
+\raknas Andel med ändrat betyg: andelen fondmånader där betyget skiljer sig från fondens föregående rad i urvalet, räknad över alla fondmånader före respektive efter (kodens \kod{lag1(rating)} och \kod{proc summary ... by ba\_reform}). Förklaringsgrad (vanligt $R^2$ i de två regressionerna; observationer som är ensamma i sin grupp tas bort, som Statas \kod{reghdfe} gör):
+\begin{equation}
+R^2_{\text{marg}}=R^2\big(F\ \text{på}\ \text{ALPHA}^{\text{rå}},\ \mu_{t\times\text{betyg}}\big)-R^2\big(F\ \text{på}\ \text{ALPHA}^{\text{rå}},\ \mu_t\big).
+\end{equation}
+\kalla{[BD] tabell 4, s.~1746, och texten s.~1746--1748; [BD-kod] ``Table 4. Effects of Morningstar's Reform on Ratings and Flows'': \kod{af\_j02 = 1; if yyyymm le 200206 then af\_j02 = 0}, \kod{reghdfe std\_floww retrf\_a if af\_j02 == 0, a(yyyymm)} mot \kod{a(month\_rating)}. Kategoriraderna tas bara med för USA: de prövar innehållet i 2002 års reform. Kod: \kod{lib/ankartest.py:andel\_andrad, table4b}; \kod{test/usa.py}, \kod{test/eu2006.py}.}
+\visar I USA är betygets förklaringsgrad oförändrad efter reformen, som hos ankaret. I Europa bytte 45,8~\% av fonderna betyg i oktober 2006, mot 19,0~\% en vanlig månad före. Betygets förklaringsgrad är 0,0119 före och 0,0100 efter. Talen är små: en del av dem uppstår av sig själv när grupperna blir fler, så skillnaden ska inte läsas som ett fall. \textbf{Vi har ingen källa från Morningstar för vad som ändrades i oktober 2006.} Utan den visar panel B bara att många betyg ändrades den månaden.
+
+\setcounter{figure}{2}
+\begin{figure}[H]
+\centering\includegraphics[width=\textwidth]{figurer/figur3.pdf}
+\caption{Did flows follow the displayed rating or the coming one? The statistic is equation 2 of Ben-David et al.\ (2022): the flow spread between top-rated and bottom-rated funds, sorted on the displayed rating, minus the same spread sorted on the rating the fund has in the reform month, summed over the three months before the reform month. The blue bar is the reform year; grey bars are other years, treated as placebos. Dashed lines are the 1st and 99th percentiles of a bootstrap over the placebo years. United States: March to May, June rating. Europe: July to September, October rating. The layout follows their Figure 5, Panel B.}
+\end{figure}
+\raknas För månad $m$ i de tre månaderna före händelsemånaden, år $y$:
+\begin{equation}
+D_y=\sum_{m}\Big[\big(\bar F^{\,\text{visat}}_{\text{topp},m}-\bar F^{\,\text{visat}}_{\text{botten},m}\big)-\big(\bar F^{\,\text{kommande}}_{\text{topp},m}-\bar F^{\,\text{kommande}}_{\text{botten},m}\big)\Big].
+\end{equation}
+Intervallet: dra ett jämförelseår, dra tre av dess månader med återläggning, summera; 10~000 dragningar; 1:a och 99:e percentilen. Antalet dragningar anger ankaret inte. Fonden ska finnas i urvalet i händelsemånaden, och dess betyg den månaden är det kommande betyget (kodens \kod{focal\_rating}). Alla andra år är jämförelseår.
+\kalla{[BD] ekvation 2, s.~1749; figur 5, panel B, s.~1747 (``Years other than 2002 serve as placebo tests''); bootstrap enligt not 24, s.~1749 (``we first resample the focal year and then randomly draw 3 months within that year (with replacement)''); [BD-kod] ``Test For Figure 5 Panel B''. Kod: \kod{lib/ankartest.py:fig5b}.}
+\begin{center}\resizebox{0.95\textwidth}{!}{\input{tabeller/figur3_tal.tex}}\end{center}
+\visar I USA 2002 följde flödena det visade betyget, inte det kommande: måttet för 4--5 mot 1--2 stjärnor ligger över intervallet och är störst av alla år. Ankaret finner samma sak. I Europa 2006 är båda måtten störst av alla år, men 4--5 mot 1--2 ligger inom intervallet och 5 mot 1 ligger precis över gränsen (3,05 mot 2,99). Europa ger alltså ett svagare svar än USA.
+
+\section{Följer flödena risksiffran?}
+\begin{table}[H]
+\caption{The risk number as a third signal. Monthly flow (percent of assets) is regressed on the displayed risk number (1 to 7), the star rating (1 to 5), the 18-month raw return, flow 19 months earlier, log size, log age, expense ratio and 60-month return volatility. Coefficients are multiplied by 12. Fama-MacBeth rows average monthly cross-sectional coefficients, with Newey-West standard errors (six lags); the pooled row has month effects and standard errors clustered by fund and month. Panel B gives the $R^2$ with all three blocks minus the $R^2$ without the block named, with month effects and indicator variables for ratings and risk numbers. European equity funds, January 2018 to December 2025.}
+\centering\input{tabeller/tabell4.tex}
+\end{table}
+\raknas Varje månad $t$: $F_{p,t}=a_t+b_t\,\text{Risk}_{p,t}+c_t\,\text{Betyg}_{p,t}+\gamma_t'X_{p,t}+e_{p,t}$. Skattningen är $\bar b=\frac1T\sum_t b_t$ med Newey-West-fel.
+\kalla{Regressionen är [BD] figur 5 A(b) med risksiffran tillagd (se ovan). Fama-MacBeth när signaler jämförs: [BD] bilaga B.3, s.~1767, och tabell 6, kolumn 4, s.~1761; [BD-kod] ``Table 6, Column 4: Run Return Decomposition Regression usign Fama-MachBeth''; [FM]. Kod: \kod{test/eu.py:tredje\_signal}, \kod{lib/stat.py:fama\_macbeth}.}
+\visar Risksiffran har inget säkert samband med flödena utöver stjärnan och avkastningen. Det är ett samband, inte en orsak. Regressionen bygger på ungefär hälften av fonderna, eftersom någon kontrollvariabel saknas för resten.
+
+\begin{table}[H]
+\caption{The January 2023 switch in the form of Table 4 of Ben-David et al.\ (2022). The first row gives the share of funds whose displayed risk number differs from the month before. The next rows give the $R^2$ of a regression of flow on the 18-month raw return with month-by-label effects, minus the $R^2$ with month effects only; ``beyond'' adds month-by-risk-number effects to month-by-rating effects. Before is January 2018 to December 2022, after is January 2023 to December 2025.}
+\centering\input{tabeller/tabell5.tex}
+\end{table}
+\kalla{Samma formler och källor som tabell 3, panel A och B, med risksiffran som etikett. Kod: \kod{test/eu.py:handelse2023}.}
+
+\begin{table}[H]
+\caption{Did funds whose risk number fell further receive more flow? Fund-month regressions of monthly flow (percent of assets) on Fall $\times$ After, where Fall is the number of classes the fund's risk number fell on 1 January 2023 (0, 1 or 2) and After is one from January 2023. Coefficients are multiplied by 12 and read as percentage points of assets per year. The specification follows equation 1 of Adelino, Cunha, and Ferreira (2017): column 1 has fund and category-by-month effects, column 2 adds volatility-decile-by-month effects, and column 3 adds the star rating as a control. Standard errors, in parentheses, are clustered by fund. The minimum detectable effect is 2.8 standard errors. January 2021 to December 2024. Flows are summed over the fund's non-institutional share classes that are not sold only in the United Kingdom, and winsorized at the 1st and 99th percentiles within month.}
+\centering\input{tabeller/tabell6.tex}
+\end{table}
+\raknas
+\begin{equation}
+F_{f,t}=\beta\,\text{Fall}_f\times\text{After}_t+\eta_f+\eta_{\text{kategori},t}+\eta_{\text{volatilitetsdecil},t}+\varepsilon_{f,t}.
+\end{equation}
+$\text{Fall}_f$ = gammal siffra (SRRI, december 2022) minus ny (SRI). Volatilitetsdecilen bygger på fondens volatilitet före bytet. Minsta påvisbara effekt: $(1{,}96+0{,}84)\cdot SE=2{,}8\cdot SE$ (5~\% nivå, 80~\% styrka).
+\kalla{[ACF] ekvation 1, s.~3236: $\text{Rating}_{it}=\beta\,\text{Recalibrated}_i\times\text{Post}_t+\text{kontroller}+\eta_i+\eta_{\text{state},t}+\eta_{\text{size},t}+\varepsilon_{it}$, med standardfel klustrade på county och storleksdecilen med ``in some specifications''. Vår översättning: fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Deras skäl för storleksdecilen är att fånga tidsvarierande faktorer som träffar olika stora enheter olika (s.~3236). Hos oss bestämmer volatiliteten hur många steg siffran föll, därför får den egna tidseffekter. Winsoriseringen är ankarets ([BD] s.~1733). Minsta påvisbara effekt krävs av kursens bilder; \textbf{formeln saknar källa i underlaget}. Kod: \kod{test/byte2023.py}.}
+\visar Ingen effekt hittas. Intervallet i kolumn 2 utesluter effekter större än ungefär en fjärdedel av det en stjärna hänger ihop med i kolumn 3.
+
+\setcounter{figure}{3}
+\begin{figure}[H]
+\centering\includegraphics[width=0.72\textwidth]{figurer/figur4.pdf}
+\caption{Fall $\times$ quarter. Coefficients from the regression in Table 6, column 2, with Fall interacted with an indicator for each quarter; the fourth quarter of 2022 is the base. Bars are 95 percent intervals, standard errors clustered by fund.}
+\end{figure}
+\kalla{[ACF] figur 4, s.~3243 (koefficienter per händelseår; ``no evidence of significant preexisting differential trends'', s.~3242). Kod: \kod{test/byte2023.py}, avsnittet ``handelsestudie''.}
+\begin{center}\resizebox{0.95\textwidth}{!}{\input{tabeller/figur4_tal.tex}}\end{center}
+
+\clearpage
+\section{Bilaga}
+\begin{table}[H]
+\caption*{\textbf{Table A1.} All ten pairs of Table 3 in Ben-David et al.\ (2022). See Table 2 for definitions. The three blocks use the monthly flow in percent of assets, the monthly flow in USD million, and an indicator for a positive flow (coefficients in percentage points).}
+\centering\footnotesize\input{tabeller/bilaga_a1.tex}
+\end{table}
+
+\begin{table}[H]
+\caption*{\textbf{Table A2.} Aggregate flows (Table 2, columns 1 to 5, of Ben-David et al.\ 2022). Time-series regressions of the equal-weighted average monthly flow (percent) on the equal-weighted average raw return and, in columns 2 to 5, one further return measure. Regressors are standardized. Newey-West $t$-statistics with six lags.}
+\centering\input{tabeller/bilaga_a2.tex}
+\end{table}
+\kalla{[BD] tabell 2, s.~1737; [BD-kod] ``Code and Output for Table 2'' (\kod{newey pflow\_mmew100 retrf\_mmew\_z retexmkt\_mmew\_z, lag(6)} och så vidare). Standardfelen har faktorn $n/(n-k)$ som Statas \kod{newey}; Statas manual är inte läst i denna körning. Kod: \kod{lib/ankartest.py:table2}, \kod{lib/stat.py:nw\_reg}.}
+
+\begin{table}[H]
+\caption*{\textbf{Table A3.} Flows to top-ranked funds (Figure 4 of Ben-David et al.\ 2022). Average monthly flow and share of funds with a positive flow among the funds ranked at the top by each measure.}
+\centering\input{tabeller/bilaga_a3.tex}
+\end{table}
+\kalla{[BD] figur 4, s.~1743. Ankarets tal är hämtade ur kodens utskrift (\kod{fig4\_panela}, \kod{average\_all}). Kod: \kod{lib/ankartest.py:fig4}.}
+
+\begin{table}[H]
+\caption*{\textbf{Table A4.} Table 2, Panel A, on other data: all share classes with an EU fact sheet (not only those sold in the EEA outside the United Kingdom), and Fama-French European factors instead of Developed factors.}
+\centering\input{tabeller/bilaga_a4.tex}
+\end{table}
+
+\begin{table}[H]
+\caption*{\textbf{Table A4, continued.} Table 3 of Ben-David et al.\ (2022) in four forms. ``Code form'' regresses flow on Top$^A-$Top$^B$ and an indicator for being top-ranked by either measure, without month effects. The next two columns replace the second regressor with an indicator for being top-ranked by both, and with the sum of the two indicators. ``Text form'' regresses flow on the two indicators with month effects and reports the difference between their coefficients, as the printed table note describes. $t$-statistics use standard errors clustered by fund and month.}
+\centering\resizebox{\textwidth}{!}{\input{tabeller/bilaga_a4b.tex}}
+\end{table}
+\kalla{[BD] tabell 3, not, s.~1744 (``the difference in the coefficients of the first and the second indicators'', ``controlling for month fixed effects''); [BD-kod] ``Table 3 (Flows to Top-Ranked Funds: Horse Races Between Performance Measures)''. Kod: \kod{test/tabell3\_former.py}.}
+\visar $b_1$ är densamma hur den andra regressorn än definieras. Textens form ger exakt det dubbla med i stort sett samma $t$-värde. Valet av form ändrar alltså ingen slutsats; det ändrar bara skalan med en faktor två.
+
+\begin{table}[H]
+\caption*{\textbf{Table A5.} Table 6, column 2, with Fall replaced by indicators for a fall of one class and of two classes. Adelino et al.\ (2017) report the same split by notch (Internet Appendix Table IA.5, referred to on p.~3242).}
+\centering\input{tabeller/bilaga_a5.tex}
+\end{table}
+
+\begin{table}[H]
+\caption*{\textbf{Table A6.} Europe, October 2006: three ways of combining the two data sources for assets. See Table 3 and Figure 3 for definitions.}
+\centering\resizebox{\textwidth}{!}{\input{tabeller/bilaga_a6.tex}}
+\end{table}
+
+\visar Ordningen mellan källorna spelar liten roll. Utan LSEG:s förmögenhet finns 24~432 fondmånader före bytet i stället för 57~043, och intervallen i figur 3 blir mycket vida.
+
+\begin{figure}[H]
+\centering\includegraphics[width=0.72\textwidth]{figurer/figur_a1.pdf}
+\caption*{\textbf{Figure A7.} Average monthly flow by how far the risk number fell, three-month moving average. The dashed line marks 1 January 2023.}
+\end{figure}
+
+\textbf{UK mot EU.} Inte återskapad i \kod{final\_code}. Talen från körningen 19 november står i \kod{RESULTAT\_omkorning\_full2\_ny\_B2\_2026-11-19}, avsnitt 5 (huvudnivå: $+1{,}17$, SE $1{,}33$, 459 fonder). Skripten ligger i \kod{analys\_eu\_full2\_2026-11-19/}.
+
+\section{Avvikelser från ankaret}\label{sec:avvik}
+\begin{tabular}{@{}p{0.5cm}p{6.9cm}p{7.9cm}@{}}
+\toprule
+ & Ankaret & Vi \\
+\midrule
+1 & CRSP, sammanslaget med Morningstar ([BD] s.~1733) & Morningstar Direct för allt. Flödena sprider 1,7 gånger mer (tabell 1, panel A) \\
+2 & Tabell 3 enligt texten: skillnad mellan två indikatorers koefficienter ([BD] s.~1744) & Kodens form: $b_1$ på skillnaden mellan indikatorerna, utan månadseffekt. Det är halva skillnaden och det tal ankaret trycker. Textens form står i bilaga A4 \\
+3 & Betor: texten anger 60 månader ([BD] ekvation A.2, s.~1765) & Kodens krav: minst 36 av 60 månader \\
+4 & Historisk avgift och kategori & Dagens avgift och kategori (det exporten ger) \\
+5 & Amerikanska faktorer & Europa: Fama-Frenchs Developed-faktorer i USD (Europe-faktorer i bilaga A4) \\
+6 & Diversifierade amerikanska aktiefonder & Europa: alla aktiefonder med säte i Luxemburg eller Irland \\
+7 & Kontroller i figur 5 A(b): se figur 2 & Europa 2003--2016 har bara rå avkastning som kontroll (panelen saknar de övriga) \\
+8 & Fonder med minst 10 MUSD, alla andelsklasser & Tabell 6: icke-institutionella klasser med minst 1 MUSD och minst 18 flödesmånader på var sida om bytet. \textbf{Eget urvalsval; se sista avsnittet} \\
+9 & Kodens utskrifter har 175 månader (från juni 1997); texten anger juli 1997 ([BD] s.~1734) & Juli 1997 till december 2011, 174 månader \\
+10 & Avsnitt 4 (tabell 5 och 6, figur 6--8) & Replikeras inte \\
+\bottomrule
+\end{tabular}
+
+\section{Kontroll av att talen stämmer}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item Hela kedjan är körd från rådata i en ren kopia med repots mappstruktur. Alla 83 filer i \kod{final\_result/tal/} och alla 16 tabellfiler blev identiska med en körning på de paneler som de äldre skripten byggde.
+\item Varje funktion i \kod{lib/ankartest.py} är läst mot motsvarande avsnitt i författarnas kod. Skillnaderna som hittades står på första sidan och i \kod{final\_code/KONTROLL.md}.
+\item Ankarets egna tal är inskrivna för hand och kontrollerade mot den tryckta artikeln (tabell 1, s.~1734; tabell 3, s.~1744; tabell 4, s.~1746) och mot utskrifterna i författarnas kod (tabell 2, figur 3, figur 4). \textbf{En av er bör läsa dem mot artikeln en gång till.}
+\end{itemize}
+
+\section{Kvar utan förlaga: ni avgör}
+Detta finns kvar i dokumentet men går inte att hänvisa till en artikel rakt av.
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \textbf{Händelsen oktober 2006.} Testen är ankarets, men vi har ingen källa från Morningstar för vad som ändrades. Utan den bör panel B i tabell 3 och Europadelen av figur 3 strykas eller beskrivas som ``en månad då ovanligt många betyg ändrades''.
+\item \textbf{Översättningen av Adelino m.fl.} Fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Någon översättning krävs när metoden flyttas till fonder; den här är vår.
+\item \textbf{Urvalet i tabell 6.} Icke-institutionella klasser, minst 1 MUSD per klass, minst 18 flödesmånader på var sida om bytet. Ankarets regel är minst 10 MUSD per fond och alla klasser. Urvalet kan byggas om efter ankarets regel.
+\item \textbf{Minsta påvisbara effekt.} Krävs av kursens bilder. Formeln $2{,}8\cdot SE$ saknar källa i underlaget.
+\item \textbf{Stjärnan som kontroll i tabell 6, kolumn 3.} Adelino m.fl.\ har ``kontroller'' i ekvation 1; att just stjärnan läggs in är vårt val.
+\item \textbf{Figur A7} (medelflöde per grupp och månad) är en beskrivande figur utan förlaga.
+\item \textbf{Bilaga A4 och A6} kör ankarets test på andra datavarianter. Det är datakontroller, inte nya test.
+\item \textbf{Före och efter under figur 2.} Regressionen är ankarets, men ankaret räknar inte ut skillnaden mellan perioderna. De två kortare perioderna för Europa är vårt val.
+\end{enumerate}
+
+\section{Inte läst eller inte gjort}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item {[BHO]}, [FM], [CGM] och Statas manual är inte lästa. [ACF] är läst i trycket bara på de sidor som anges i avsnitt~\ref{sec:kallor}; deras kod har vi inte.
+\item Den andra regressorn i ankarets tabell 3 definieras inte i den kod vi har. Det påverkar inte koefficienten (bilaga A4).
+\item UK mot EU är inte återskapad.
+\item Panelbyggarna i \kod{final\_code/bygg} är de ursprungliga skripten och är inte lästa mot författarnas kod rad för rad i denna körning.
+\item Ingen av författarna har kört om något.
+\end{itemize}
+\end{document}

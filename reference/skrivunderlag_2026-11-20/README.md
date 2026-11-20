@@ -8,6 +8,7 @@ Förebilderna är: Riccardo Sabbatuccis sex artiklar, Hartzmark och Sussman (201
 
 | Fil | Vad den är |
 |---|---|
+| `DISPOSITION_slutlig_efter_final_result_2026-11-20.md` | **Den som gäller.** Skriven sist, efter slutpaketet `final_result/` och regeln att uppsatsen inte får innehålla egna test. Sex avsnitt, 26 sidor, inget eget litteraturkapitel (litteraturen sist i inledningen), och samma två frågor till båda etiketterna: följer flödena etiketten i tvärsnittet, och vad hände när etiketten ändrades. Vilken tabell och figur som hör till vilket avsnitt. Tre saker som måste lösas innan texten skrivs. Ersätter förslagen i de två filerna nedan där de skiljer sig |
 | `DISPOSITION_uppsatsens_struktur_2026-11-20.md` | Kursens krav på strukturen (bilder, kursplan), hur förebilderna disponerar sina texter (avsnittsordning, andel av orden per avsnitt), Cochranes skrivråd i korthet, och ett förslag: sju avsnitt, cirka 30 sidor, 6 tabeller och 4 figurer |
 | `DISPOSITION_innehall_per_avsnitt_och_tabeller_2026-11-20.md` | Har andra ett eget litteraturavsnitt (räknat i artiklar, vinnare, uppsatser Sabbatucci handlett och alla uppsatser 2024 till 2026). Vad som ska stå i varje avsnitt, och vilka av våra tal som hör till varje tabell och figur, med källdokument. Fem saker som inte är byggda: tabell 1 panel B till D och figur 1 till 4 |
 | `MONSTER_sabbatucci_sex_artiklar_2026-11-20.md` | Femton mönster i Sabbatuccis sex artiklar, med ställe i varje artikel |
@@ -49,6 +50,7 @@ python3 ratta.py utkast.md --max 0
 |---|---|
 | `DISPOSITION_innehall_per_avsnitt_och_tabeller_2026-11-20.md` | `def095ea191a1158e731462442a96e4b` |
 | `DISPOSITION_uppsatsens_struktur_2026-11-20.md` | `0832c9ad2ab48557f00ae5204379d3ff` |
+| `DISPOSITION_slutlig_efter_final_result_2026-11-20.md` | `8d5ba10f3783a2d741f39c882f192cf3` |
 | `MATT_rattningsinstrument_2026-11-20.md` | `46138bd6c783d12636992d1211ba7a48` |
 | `MONSTER_prisvinnare_kandidat_2026-11-20.md` | `2577a0b56953937e3552c75c3f31d7cc` |
 | `MONSTER_sabbatucci_sex_artiklar_2026-11-20.md` | `4f54060389489604ad091a68fa0ed0cb` |
