@@ -1,0 +1,79 @@
+Urval: 4863 klasser, 4863 fonder, 398599 klassmanader 2019-2025. Dos: {0.0: 421, 1.0: 2598, 2.0: 1844}
+
+MEDELFLODE, pp per ar (ra medel, inga kontroller):
+     fore 2021-22  efter 2023-24  andring  fonder
+dos                                              
+0.0          9.22          -1.50   -10.71     421
+1.0          3.67         -10.27   -13.94    2598
+2.0          4.81         -10.07   -14.88    1844
+
+HUVUDTEST: Efter x Dos, Efter x polynom(sigma), klass- och manad x kategori-effekter. pp per ar per steg siffran foll.
+  beta                                                       +0.39  SE 1.11  t +0.35  95 % [ -1.79;  +2.57]  MDE  3.1  fonder 4863  obs 232356 
+  LASREGEL: innehaller noll | inom +-2,75: halv stjarna avvisas
+
+V1 KAND VIKT: forra manadens stjarna i huvudregressionen
+  stjarna, per stjarna                                       +5.76  SE 0.80  t +7.17  95 % [ +4.19;  +7.33]  MDE  2.2  fonder 4316  obs 198790 
+  beta med stjarnan                                          +0.09  SE 1.16  t +0.08  95 % [ -2.19;  +2.37]  MDE  3.3  fonder 4316  obs 198790 
+  V1: UPPFYLLT
+
+V2 HANDELSSTUDIE per kvartal (Dos x kvartal, bas 2022Q4, polynom x kvartal):
+kvartal     b   se     t
+ 2021Q1  0.55 3.19  0.17
+ 2021Q2  1.67 2.43  0.69
+ 2021Q3 -0.49 2.40 -0.20
+ 2021Q4 -1.92 2.20 -0.87
+ 2022Q1  1.09 2.60  0.42
+ 2022Q2  3.31 2.17  1.53
+ 2022Q3  2.77 1.76  1.57
+ 2023Q1  1.33 1.91  0.69
+ 2023Q2  0.86 1.97  0.44
+ 2023Q3  0.79 1.94  0.41
+ 2023Q4  2.26 2.19  1.03
+ 2024Q1  1.17 2.20  0.53
+ 2024Q2  1.75 2.80  0.63
+ 2024Q3  2.54 2.26  1.12
+ 2024Q4 -0.72 2.59 -0.28
+  gemensamt test, 7 kvartal FORE: chi2 10.41, p 0.167 | 8 kvartal EFTER: chi2 4.54, p 0.805
+  medel av koefficienterna fore +1.00, efter +1.25
+  V2: UPPFYLLT
+
+V3 LATSASBYTE januari 2021 (2019-20 mot 2021-22)
+  latsasbyte: Efter(2021) x Dos                              -1.12  SE 1.49  t -0.75  95 % [ -4.05;  +1.81]  MDE  4.2  fonder 4600  obs 220006 
+  V3: UPPFYLLT
+
+SIDOTEST
+ 1. Instrument: utgar (VEV saknas)
+ 2. Inom gammal klass
+  Efter x Dos, Efter x gammal klass-effekter                 +0.02  SE 1.32  t +0.02  95 % [ -2.56;  +2.60]  MDE  3.7  fonder 4863  obs 232356 
+ 3. Institutionella klasser i samma fonder
+  institutionella klasser: Efter x Dos (fondens dos)         +1.16  SE 1.53  t +0.76  95 % [ -1.85;  +4.16]  MDE  4.3  fonder 2345  obs 278124 
+ 3b. Rena UK-klasser i samma fonder
+  rena UK-klasser: Efter x Dos (fondens dos)                 +6.16  SE 4.28  t +1.44  95 % [ -2.23; +14.55]  MDE 12.0  fonder 386  obs 43830 
+  KID-klasserna i samma fonder                               -3.28  SE 4.71  t -0.70  95 % [-12.51;  +5.95]  MDE 13.2  fonder 386  obs 18449 
+ 4. Fonster
+  12 fore / 12 efter (2022 mot 2023)                         -0.49  SE 1.20  t -0.41  95 % [ -2.84;  +1.86]  MDE  3.4  fonder 4863  obs 116634 
+  24 fore / 36 efter (till dec 2025)                         +0.87  SE 1.05  t +0.84  95 % [ -1.18;  +2.93]  MDE  2.9  fonder 4863  obs 286435 
+ 5. Smal dos
+  bara SRI forsta halvaret 2023                              +0.70  SE 1.23  t +0.57  95 % [ -1.70;  +3.10]  MDE  3.4  fonder 4097  obs 195709 
+ 6. Bara aktiefonder
+  aktiefonder                                                -0.14  SE 1.71  t -0.08  95 % [ -3.49;  +3.22]  MDE  4.8  fonder 2110  obs 100846 
+  ovriga fonder (utforskande)                                +0.68  SE 1.45  t +0.47  95 % [ -2.17;  +3.52]  MDE  4.1  fonder 2753  obs 131510 
+ 7. Kontroller
+  med Efter x avkastning 12 och 36 man, stjarndummies        +0.31  SE 1.10  t +0.28  95 % [ -1.85;  +2.47]  MDE  3.1  fonder 4863  obs 232356 
+ 8. Form
+  fjardegradspolynom                                         +0.38  SE 1.11  t +0.34  95 % [ -1.81;  +2.56]  MDE  3.1  fonder 4863  obs 232356 
+ 9. Bara dos 1 mot 2
+  dos 1 mot 2                                                +0.28  SE 1.31  t +0.21  95 % [ -2.30;  +2.85]  MDE  3.7  fonder 4442  obs 212251 
+ 11. Utan fonder till salu i Sverige
+  inte till salu i Sverige                                   +0.98  SE 1.40  t +0.70  95 % [ -1.76;  +3.72]  MDE  3.9  fonder 2538  obs 121236 
+ 12. Alla icke-institutionella klasser
+  alla klasser, kluster pa fond                              -1.08  SE 0.92  t -1.16  95 % [ -2.89;  +0.74]  MDE  2.6  fonder 4863  obs 1037427 
+ 13. Ingen storleksgrans
+  NA_t-1 utan 1 MUSD-grans                                   +1.28  SE 1.33  t +0.96  95 % [ -1.33;  +3.89]  MDE  3.7  fonder 4863  obs 232550 
+
+KONTROLLRAKNING (kollapsad)
+  beta +0.40  SE 1.13  t +0.35  95 % [-1.82; +2.61]   (panel: +0.39, SE 1.11)
+ 10. Permutationstest (2 000 dragningar inom gammal SRRI)
+  faktiskt beta +0.40 | blandade: medel +0.25, std 1.05, 2,5-97,5 % [-1.83; +2.30] | tvasidigt p 0.725
+
+VERIFIERING: inplanterad +3,00 ger +3.389 (vantat +3.389)

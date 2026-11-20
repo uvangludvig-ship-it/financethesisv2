@@ -1,0 +1,11 @@
+fonder med P12: 15508 | fondmanader 734849
+kostnadskvot finns: 0.406 | omsattning finns: 0.467
+             oc        to
+count  55336.00  63624.00
+mean       1.22    154.83
+std        0.81    914.76
+min       -0.82  -1340.00
+25%        0.69     18.00
+50%        1.05     65.39
+75%        1.70    138.18
+max       16.01  59575.00

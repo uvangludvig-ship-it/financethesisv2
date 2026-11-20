@@ -1,0 +1,52 @@
+Fondflode: 4818 fonder, 230531 fondmanader 2021-2024, 34663 klasser bidrar
+
+MEDELFLODE, fondniva, pp per ar (ra medel):
+     fore  efter  andring
+dos                      
+0.0  0.70  -0.99    -1.69
+1.0 -0.85  -7.89    -7.05
+2.0  0.93  -7.67    -8.61
+
+HUVUDTEST DEL II: Efter x Dos, polynom, Efter x forperiodens flode, fond- och manad x kategori-effekter
+  beta                                                     +0.47  SE 0.52  t +0.91  95 % [ -0.54;  +1.49]  MDE  1.5  fonder 4818  obs 230531  i stjarnor +0.10 [-0.11; +0.31]
+  LASREGEL: innehaller noll | inom +-2,75: halv stjarna avvisas
+  ANCOVA-koefficient gamma -0.775 (SE 0.079)
+
+V1 KAND VIKT
+  stjarna, per stjarna                                     +4.87  SE 0.57  t +8.57  95 % [ +3.76;  +5.98]  MDE  1.6  fonder 4277  obs 197296
+  beta med stjarnan                                        +0.03  SE 0.52  t +0.06  95 % [ -0.99;  +1.06]  MDE  1.5  fonder 4277  obs 197296  i stjarnor +0.01 [-0.20; +0.22]
+  V1: UPPFYLLT
+
+V2 HANDELSSTUDIE (fondflode, utan ANCOVA), bas 2022Q4
+kvartal     b   se     t
+ 2021Q1 -0.21 1.85 -0.11
+ 2021Q2  0.87 1.33  0.66
+ 2021Q3 -1.19 1.14 -1.04
+ 2021Q4 -1.98 1.17 -1.69
+ 2022Q1 -0.91 1.20 -0.76
+ 2022Q2 -0.19 1.03 -0.19
+ 2022Q3 -0.23 1.00 -0.23
+ 2023Q1 -0.16 1.01 -0.16
+ 2023Q2 -1.66 0.99 -1.69
+ 2023Q3 -0.92 0.97 -0.95
+ 2023Q4 -0.36 1.04 -0.34
+ 2024Q1 -0.51 1.13 -0.45
+ 2024Q2 -0.78 1.09 -0.71
+ 2024Q3  0.26 1.06  0.24
+ 2024Q4 -0.13 1.21 -0.11
+  fore: chi2 8.17, p 0.318 | efter: chi2 6.24, p 0.621 | medel fore -0.55, efter -0.53
+  V2: UPPFYLLT
+
+V3 LATSASBYTE jan 2021 (forperiod 2019-20)
+  latsas: Efter(2021) x Dos                                +0.76  SE 0.52  t +1.44  95 % [ -0.27;  +1.79]  MDE  1.5  fonder 4671  obs 223732
+  V3: UPPFYLLT
+
+SIDOTEST DEL II
+  C1. utan ANCOVA                                          -0.05  SE 0.67  t -0.08  95 % [ -1.37;  +1.26]  MDE  1.9  fonder 4818  obs 230531  i stjarnor -0.01 [-0.28; +0.26]
+  C2. winsorisering 1/99                                   +0.44  SE 0.61  t +0.71  95 % [ -0.76;  +1.64]  MDE  1.7  fonder 4818  obs 230531  i stjarnor +0.09 [-0.16; +0.34]
+  C3. SHoF dar det finns, annars Direct                    +0.01  SE 0.48  t +0.03  95 % [ -0.93;  +0.95]  MDE  1.3  fonder 5338  obs 254225  i stjarnor +0.00 [-0.19; +0.20]
+  C4. utan fonder till salu i Sverige                      +1.03  SE 0.66  t +1.55  95 % [ -0.27;  +2.33]  MDE  1.9  fonder 2507  obs 119903  i stjarnor +0.21 [-0.06; +0.48]
+  C5. bara aktiefonder                                     +0.06  SE 0.76  t +0.07  95 % [ -1.42;  +1.54]  MDE  2.1  fonder 2092  obs 100126  i stjarnor +0.01 [-0.29; +0.32]
+  C6. kollapsad: beta +0.49  SE 0.52  (panel +0.47, SE 0.52)
+
+VERIFIERING: inplanterad +3,00 ger +3.475 (vantat +3.475)

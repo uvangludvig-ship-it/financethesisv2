@@ -1,0 +1,69 @@
+
+================ NIVA 2 (HUVUDNIVA) ================
+  Ra medelfloden pp/ar: EU fore +4.75 efter -11.53 | UK fore +8.92 efter -12.13
+  HUVUDTEST N (nivaskift, Efter x EU, ANCOVA, fond x sida och fond x manad)
+    beta N                                             +0.88  SE 1.27  t +0.69  95 % [ -1.61;  +3.37]  MDE  3.6  stjarnor [-0.34; +0.70]  fonder 464  obs 44048
+    LASREGEL: innehaller noll | inom +-4,81: en stjarna avvisas
+  HUVUDTEST D (dos inom par, gap EU minus UK)
+    beta D (per steg)                                  -1.43  SE 4.36  t -0.33  95 % [ -9.97;  +7.11]  MDE 12.2  stjarnor [-2.07; +1.48]  fonder 326  obs 15539
+    LASREGEL: innehaller noll | ingen slutsats
+  V2 HANDELSSTUDIE (EU x kvartal, bas 2022Q4):  2021Q1 -2.7(6.5)  2021Q2 -4.2(4.9)  2021Q3 -6.1(3.8)  2021Q4 -4.0(3.9)  2022Q1 -5.3(3.4)  2022Q2 -4.7(3.2)  2022Q3 +0.1(3.2)  2023Q1 -4.9(3.5)  2023Q2 -0.9(3.7)  2023Q3 +2.3(3.2)  2023Q4 -0.7(3.4)  2024Q1 +2.3(3.4)  2024Q2 +1.8(3.3)  2024Q3 +5.0(3.4)  2024Q4 +7.0(3.7)
+    fore: chi2 5.81 p 0.562 | efter: chi2 14.24 p 0.076 | V2: UPPFYLLT
+    V3 latsasbyte jan 2021                             +2.62  SE 1.73  t +1.52  95 % [ -0.77;  +6.01]  MDE  4.8  stjarnor [-0.16; +1.25]  fonder 342  obs 32378
+    V3: UPPFYLLT
+  SIDOTEST
+    U1 utan ANCOVA                                     +4.83  SE 1.94  t +2.49  95 % [ +1.03;  +8.63]  MDE  5.4  stjarnor [+0.22; +1.79]  fonder 464  obs 44048
+    U2 winsorisering 1/99                              +1.03  SE 1.45  t +0.71  95 % [ -1.80;  +3.87]  MDE  4.1  stjarnor [-0.38; +0.80]  fonder 464  obs 44048
+    U3 utan sep 2022 - mar 2023                        +1.81  SE 1.24  t +1.46  95 % [ -0.62;  +4.24]  MDE  3.5  stjarnor [-0.13; +0.88]  fonder 464  obs 37584
+    U4 12 fore / 12 efter                              -1.53  SE 1.69  t -0.90  95 % [ -4.83;  +1.78]  MDE  4.7  stjarnor [-1.01; +0.37]  fonder 464  obs 22230
+    U5 24 fore / 36 efter                              +2.92  SE 1.15  t +2.53  95 % [ +0.66;  +5.18]  MDE  3.2  stjarnor [+0.14; +1.08]  fonder 464  obs 54484
+    U6 efter = jan-jun 2023                            -3.54  SE 2.08  t -1.70  95 % [ -7.61;  +0.53]  MDE  5.8  stjarnor [-1.58; +0.11]  fonder 464  obs 27460
+    U7 aktiefonder                                     +2.82  SE 1.64  t +1.72  95 % [ -0.39;  +6.03]  MDE  4.6  stjarnor [-0.08; +1.25]  fonder 250  obs 23766
+    U8 kollapsad: skift +4.84  SE 1.18  (panel +0.88) fonder 464
+  VERIFIERING: inplanterad +3,00 ger +3.877 (vantat +3.877)
+
+================ NIVA 1 ================
+  Ra medelfloden pp/ar: EU fore +8.28 efter -10.98 | UK fore +15.72 efter -13.50
+  HUVUDTEST N (nivaskift, Efter x EU, ANCOVA, fond x sida och fond x manad)
+    beta N                                             +3.09  SE 2.50  t +1.24  95 % [ -1.81;  +8.00]  MDE  7.0  stjarnor [-0.38; +1.66]  fonder 162  obs 15330
+    LASREGEL: innehaller noll | ingen slutsats
+  HUVUDTEST D (dos inom par, gap EU minus UK)
+    beta D (per steg)                                 -11.85  SE 6.62  t -1.79  95 % [-24.82;  +1.11]  MDE 18.5  stjarnor [-5.16; +0.23]  fonder 105  obs 4985
+    LASREGEL: innehaller noll | ingen slutsats
+  V2 HANDELSSTUDIE (EU x kvartal, bas 2022Q4):  2021Q1 -5.5(11.2)  2021Q2 -15.9(10.6)  2021Q3 -15.9(7.7)  2021Q4 -1.2(6.8)  2022Q1 -1.4(6.5)  2022Q2 -7.1(5.8)  2022Q3 +0.1(5.9)  2023Q1 +6.7(7.5)  2023Q2 +3.5(6.4)  2023Q3 +4.1(5.8)  2023Q4 +2.8(6.4)  2024Q1 +1.2(5.7)  2024Q2 -2.3(6.0)  2024Q3 +3.2(5.6)  2024Q4 +13.9(5.8)
+    fore: chi2 10.54 p 0.160 | efter: chi2 13.14 p 0.107 | V2: UPPFYLLT
+    V3 latsasbyte jan 2021                             +1.36  SE 2.93  t +0.47  95 % [ -4.37;  +7.10]  MDE  8.2  stjarnor [-0.91; +1.48]  fonder 114  obs 10698
+    V3: UPPFYLLT
+  SIDOTEST
+    U1 utan ANCOVA                                     +9.91  SE 4.05  t +2.44  95 % [ +1.96; +17.85]  MDE 11.3  stjarnor [+0.41; +3.71]  fonder 162  obs 15330
+    U2 winsorisering 1/99                              +2.82  SE 3.34  t +0.84  95 % [ -3.73;  +9.38]  MDE  9.4  stjarnor [-0.78; +1.95]  fonder 162  obs 15330
+    U3 utan sep 2022 - mar 2023                        +2.79  SE 2.64  t +1.06  95 % [ -2.37;  +7.96]  MDE  7.4  stjarnor [-0.49; +1.65]  fonder 162  obs 13064
+    U4 12 fore / 12 efter                              +3.03  SE 3.06  t +0.99  95 % [ -2.97;  +9.02]  MDE  8.6  stjarnor [-0.62; +1.88]  fonder 162  obs 7766
+    U5 24 fore / 36 efter                              +5.28  SE 2.11  t +2.50  95 % [ +1.13;  +9.42]  MDE  5.9  stjarnor [+0.24; +1.96]  fonder 162  obs 18930
+    U6 efter = jan-jun 2023                            +4.38  SE 4.24  t +1.03  95 % [ -3.92; +12.68]  MDE 11.9  stjarnor [-0.82; +2.64]  fonder 162  obs 9556
+    U7 aktiefonder                                     +5.08  SE 4.27  t +1.19  95 % [ -3.29; +13.46]  MDE 12.0  stjarnor [-0.68; +2.80]  fonder 84  obs 7950
+    U8 kollapsad: skift +9.76  SE 2.41  (panel +3.09) fonder 162
+  VERIFIERING: inplanterad +3,00 ger +6.094 (vantat +6.094)
+
+================ NIVA 3 ================
+  Ra medelfloden pp/ar: EU fore +5.18 efter -7.27 | UK fore +1.68 efter -8.96
+  HUVUDTEST N (nivaskift, Efter x EU, ANCOVA, fond x sida och fond x manad)
+    beta N                                             +1.37  SE 0.67  t +2.04  95 % [ +0.05;  +2.69]  MDE  1.9  stjarnor [+0.01; +0.56]  fonder 1451  obs 138206
+    LASREGEL: utesluter noll | inom +-4,81: en stjarna avvisas
+  HUVUDTEST D (dos inom par, gap EU minus UK)
+    beta D (per steg)                                  -2.09  SE 1.53  t -1.37  95 % [ -5.09;  +0.90]  MDE  4.3  stjarnor [-1.06; +0.19]  fonder 1028  obs 49136
+    LASREGEL: innehaller noll | ingen slutsats
+  V2 HANDELSSTUDIE (EU x kvartal, bas 2022Q4):  2021Q1 +4.9(2.8)  2021Q2 +8.1(2.2)  2021Q3 +2.7(1.8)  2021Q4 +2.4(1.9)  2022Q1 +3.4(1.8)  2022Q2 +2.4(1.6)  2022Q3 +1.6(1.5)  2023Q1 -1.6(1.8)  2023Q2 +0.4(1.7)  2023Q3 +1.8(1.6)  2023Q4 +2.0(2.3)  2024Q1 +3.0(1.7)  2024Q2 +2.2(1.6)  2024Q3 +0.3(1.7)  2024Q4 +2.5(1.9)
+    fore: chi2 15.02 p 0.036 | efter: chi2 11.11 p 0.196 | V2: FALLER
+    V3 latsasbyte jan 2021                             +2.23  SE 1.06  t +2.11  95 % [ +0.16;  +4.31]  MDE  3.0  stjarnor [+0.03; +0.90]  fonder 1281  obs 121718
+    V3: FALLER
+  SIDOTEST
+    U1 utan ANCOVA                                     -1.86  SE 1.01  t -1.85  95 % [ -3.84;  +0.12]  MDE  2.8  stjarnor [-0.80; +0.02]  fonder 1451  obs 138206
+    U2 winsorisering 1/99                              +1.63  SE 0.83  t +1.97  95 % [ +0.01;  +3.25]  MDE  2.3  stjarnor [+0.00; +0.68]  fonder 1451  obs 138206
+    U3 utan sep 2022 - mar 2023                        +1.81  SE 0.66  t +2.73  95 % [ +0.51;  +3.11]  MDE  1.9  stjarnor [+0.11; +0.65]  fonder 1451  obs 117942
+    U4 12 fore / 12 efter                              +0.66  SE 0.91  t +0.72  95 % [ -1.13;  +2.45]  MDE  2.6  stjarnor [-0.23; +0.51]  fonder 1451  obs 69538
+    U5 24 fore / 36 efter                              +1.30  SE 0.53  t +2.46  95 % [ +0.26;  +2.34]  MDE  1.5  stjarnor [+0.05; +0.49]  fonder 1451  obs 171306
+    U6 efter = jan-jun 2023                            -0.56  SE 0.99  t -0.56  95 % [ -2.50;  +1.38]  MDE  2.8  stjarnor [-0.52; +0.29]  fonder 1451  obs 86334
+    U7 aktiefonder                                     +2.24  SE 0.95  t +2.35  95 % [ +0.37;  +4.11]  MDE  2.7  stjarnor [+0.08; +0.86]  fonder 696  obs 66384
+    U8 kollapsad: skift -1.87  SE 0.61  (panel +1.37) fonder 1451
+  VERIFIERING: inplanterad +3,00 ger +4.370 (vantat +4.370)
