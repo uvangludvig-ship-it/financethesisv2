@@ -1,0 +1,71 @@
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  W["d_" + q] = (W.q == q) * W.dos; cols.append("d_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  W["d_" + q] = (W.q == q) * W.dos; cols.append("d_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+  for k in ks: W[f"k{int(k)}_" + q] = ((W.q == q) & (W.srri22 == k)).astype(float); pc.append(f"k{int(k)}_" + q)
+Urval: 4818 fonder, 230531 fondmanader 2021-2024
+RA MEDEL pp per ar:
+     fore  efter  andring
+dos                      
+0.0  0.70  -0.99    -1.69
+1.0 -0.85  -7.89    -7.05
+2.0  0.93  -7.67    -8.61
+
+V1 stjarnan i huvudregressionen
+  stjarna, per stjarna                               +4.93  SE 0.57  t +8.71  95 % [ +3.82;  +6.04]  MDE  1.6  fonder 4277  obs 197296
+  beta med stjarnan                                  -1.81  SE 0.78  t -2.32  95 % [ -3.35;  -0.28]  MDE  2.2  fonder 4277  obs 197296  i stjarnor [-0.68; -0.06]
+
+HUVUD (Panel B): Dos x Efter, Efter x gammal klass, fond- och manad x kategori-effekter
+  beta, pp per ar per steg                           -0.55  SE 0.79  t -0.69  95 % [ -2.11;  +1.01]  MDE  2.2  fonder 4818  obs 230531  i stjarnor [-0.43; +0.20]
+  LASREGEL: innehaller noll | halv stjarna (2,75) avvisas
+
+OVRIGA RADER
+  A  Panel A: Sankt (dos>=1) x Efter                 +1.36  SE 1.91  t +0.71  95 % [ -2.38;  +5.11]  MDE  5.4  fonder 4818  obs 230531
+  C  Table VI: tva steg mot ett                      -1.10  SE 0.88  t -1.25  95 % [ -2.83;  +0.63]  MDE  2.5  fonder 4400  obs 210538
+  R1 ra form: fond- och manadseffekter               -2.68  SE 0.78  t -3.45  95 % [ -4.21;  -1.16]  MDE  2.2  fonder 4818  obs 230531
+  R2 R1 + Efter x gammal klass                       +2.04  SE 0.82  t +2.49  95 % [ +0.44;  +3.65]  MDE  2.3  fonder 4818  obs 230531
+  R3 huvud + forperiodens flode                      +0.36  SE 0.64  t +0.56  95 % [ -0.90;  +1.62]  MDE  1.8  fonder 4818  obs 230531  i stjarnor [-0.18; +0.33]
+  R4 huvud + polynom i sigma                         -0.05  SE 0.87  t -0.06  95 % [ -1.75;  +1.65]  MDE  2.4  fonder 4818  obs 230531
+
+V2 HANDELSSTUDIE (Dos x kvartal, gammal klass x kvartal, bas 2022Q4)
+  2021Q1   -1.90  SE 1.98
+  2021Q2   +2.40  SE 1.52
+  2021Q3   +0.07  SE 1.32
+  2021Q4   -1.70  SE 1.35
+  2022Q1   +0.87  SE 1.47
+  2022Q2   +1.00  SE 1.15
+  2022Q3   +0.74  SE 0.99
+  2023Q1   -0.71  SE 1.15
+  2023Q2   -1.37  SE 1.18
+  2023Q3   -0.63  SE 1.14
+  2023Q4   -1.11  SE 1.24
+  2024Q1   -0.57  SE 1.32
+  2024Q2   -1.29  SE 1.25
+  2024Q3   +1.78  SE 1.21
+  2024Q4   +1.10  SE 1.41
+  fore: chi2 16.28, p 0.023 | efter: chi2 14.28, p 0.075 -> V2 FALLER
+
+V3 LATSASBYTE januari 2021 (2019-2022)
+  latsasbyte                                         +0.26  SE 1.01  t +0.26  95 % [ -1.72;  +2.24]  MDE  2.8  fonder 4671  obs 223732
+  V3: UPPFYLLT
+
+Verifiering: inplanterad +3,00 ger +3.000
+
+real	0m27.838s
+user	0m24.251s
+sys	0m2.841s

@@ -1,0 +1,75 @@
+Dos per volatilitetsdecil (antal fonder):
+dos  0.0  1.0  2.0  sig_min  sig_max
+sig                                 
+0    243  225   14      0.2      4.5
+1     62  347   73      4.5      6.2
+2     30  335  117      6.2      7.7
+3     19  403   59      7.7      9.5
+4     23  283  176      9.5     11.8
+5     12  217  253     11.8     14.8
+6      8   89  384     14.8     16.9
+7      6  102  374     16.9     18.7
+8      4  236  242     18.7     21.1
+9     11  337  134     21.1     47.2
+
+Urval: 4818 fonder, 230531 fondmanader 2021-2024
+
+===== TEST A: Adelino-formen =====
+A6 stjarnan i samma regression
+  stjarna, per stjarna                                 +5.29  SE 0.56  t +9.49  95 % [ +4.20;  +6.38]  MDE  1.6  fonder 4277  obs 197296
+  beta med stjarnan                                    -0.39  SE 0.71  t -0.54  95 % [ -1.78;  +1.01]  MDE  2.0  fonder 4277  obs 197296  i stjarnor [-0.34; +0.19]
+A1 HUVUD: Dos x Efter + fond + kategori x manad + volatilitetsdecil x manad
+  beta, pp per ar per steg                             +0.07  SE 0.69  t +0.10  95 % [ -1.29;  +1.42]  MDE  1.9  fonder 4818  obs 230531  i stjarnor [-0.24; +0.27]
+  LASREGEL: innehaller noll | tredjedel (1,6) avvisas
+OVRIGA RADER
+  A2 utan volatilitetsdecil                            +0.56  SE 0.67  t +0.83  95 % [ -0.75;  +1.87]  MDE  1.9  fonder 4818  obs 230531
+  A3 ett steg x Efter                                  +2.17  SE 1.69  t +1.28  95 % [ -1.15;  +5.49]  MDE  4.7  fonder 4818  obs 230531
+  A3 tva steg x Efter                                  +1.56  SE 1.80  t +0.87  95 % [ -1.97;  +5.09]  MDE  5.0  fonder 4818  obs 230531
+  A4 fem grupper                                       +0.14  SE 0.68  t +0.20  95 % [ -1.20;  +1.48]  MDE  1.9  fonder 4818  obs 230531
+  A4 tjugo grupper                                     +0.03  SE 0.68  t +0.05  95 % [ -1.30;  +1.37]  MDE  1.9  fonder 4818  obs 230531
+  A5 winsorisering 1/99                                +0.01  SE 0.83  t +0.02  95 % [ -1.60;  +1.63]  MDE  2.3  fonder 4818  obs 230531
+  jfr sicksacken (polynom + flode fore)                +0.47  SE 0.52  t +0.91  95 % [ -0.54;  +1.49]  MDE  1.5  fonder 4818  obs 230531
+  jfr sicksacken utan flode fore                       -0.05  SE 0.67  t -0.08  95 % [ -1.37;  +1.26]  MDE  1.9  fonder 4818  obs 230531
+A7 andel av variansen i Dos x Efter som aterstar efter fasta effekter
+  A2 fond + kategori x manad          9.4 %
+  A1 + volatilitetsdecil x manad      8.8 %
+  + 20 grupper                        8.5 %
+  sicksackens polynom                 9.1 %
+
+V1 HANDELSSTUDIE (Dos x kvartal, A1:s effekter, bas 2022Q4)
+  2021Q1   +0.05  SE 1.94
+  2021Q2   +0.50  SE 1.36
+  2021Q3   -1.32  SE 1.17
+  2021Q4   -1.76  SE 1.20
+  2022Q1   -1.20  SE 1.22
+  2022Q2   -0.72  SE 1.02
+  2022Q3   -0.72  SE 1.05
+  2023Q1   +0.05  SE 1.14
+  2023Q2   -1.80  SE 1.01
+  2023Q3   -1.02  SE 0.98
+  2023Q4   -0.39  SE 1.07
+  2024Q1   -0.51  SE 1.16
+  2024Q2   -0.83  SE 1.12
+  2024Q3   +0.23  SE 1.10
+  2024Q4   -0.36  SE 1.24
+  fore: chi2 5.60, p 0.587 | efter: chi2 7.47, p 0.487 -> V1 UPPFYLLT
+
+V2 LATSASBYTE januari 2021 (2019-2022)
+  latsasbyte                                           +0.07  SE 0.86  t +0.09  95 % [ -1.62;  +1.77]  MDE  2.4  fonder 4671  obs 223732
+  V2: UPPFYLLT
+V3 inplanterad +3,00 ger +3.000
+
+===== TEST B: Reuter-Zitzewitz reformform (tvarsnitt) =====
+  B1 HUVUD: flode 2023 pa Dos                          +0.28  SE 0.69  t +0.41  95 % [ -1.07;  +1.63]  MDE  1.9  fonder 4803  obs 4803  i stjarnor [-0.20; +0.31]
+  LASREGEL: innehaller noll | halv stjarna (2,75) avvisas
+     volatilitet +0.402 (SE 0.151) | flode 2022 +0.345 (SE 0.019)
+  B2 + stjarna och log storlek                         -0.26  SE 0.73  t -0.36  95 % [ -1.69;  +1.17]  MDE  2.0  fonder 4156  obs 4156
+     stjarna +1.82 (SE 0.28)
+  B3 horisont 24 manader (per ar)                      +0.78  SE 0.63  t +1.23  95 % [ -0.47;  +2.02]  MDE  1.8  fonder 4804  obs 4804
+  B4 falsifiering: flode 2022 pa Dos                   +1.01  SE 0.68  t +1.48  95 % [ -0.33;  +2.34]  MDE  1.9  fonder 4784  obs 4784
+  B4: UPPFYLLT
+B5 inplanterad +3,00 ger +3.000
+
+real	0m46.874s
+user	0m39.327s
+sys	0m1.418s

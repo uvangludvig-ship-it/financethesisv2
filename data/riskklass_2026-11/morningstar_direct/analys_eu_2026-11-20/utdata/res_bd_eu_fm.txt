@@ -1,0 +1,23 @@
+Urval: 66365 fondmanader, 1142 fonder, 2018-01 till 2025-12
+
+F1 HUVUD, Fama-MacBeth, Newey-West 6
+  riskklass, per steg                          +0.61 pp/ar  SE 0.66  t +0.94  95 % [ -0.67;  +1.90]  manader 96
+  stjarna, per stjarna                         +5.53 pp/ar  SE 0.46  t +11.89  95 % [ +4.62;  +6.44]  manader 96
+  avkastning: +0.854 (t 12.07) | sd60: -0.052 (t -1.03)
+  andel manader med positiv riskklasskoefficient: 53 %
+  jfr poolad, manadseffekter, kluster fond och manad, samma urval
+  riskklass, per steg                          +0.80 pp/ar  SE 0.98  t +0.82  95 % [ -1.11;  +2.72]
+  stjarna, per stjarna                         +5.68 pp/ar  SE 0.53  t +10.73  95 % [ +4.65;  +6.72]
+
+F2 inom kategori
+  riskklass, per steg                          -0.34 pp/ar  SE 0.93  t -0.36  95 % [ -2.16;  +1.49]  manader 96
+  stjarna, per stjarna                         +5.60 pp/ar  SE 0.48  t +11.67  95 % [ +4.66;  +6.55]  manader 96
+  jfr poolad manad x kategori: riskklass       -0.20 pp/ar  SE 1.12  t -0.18  95 % [ -2.39;  +1.99]
+
+F3 delperioder
+  2018-2022 (SRRI): riskklass                  +0.59 pp/ar  SE 0.99  t +0.60  95 % [ -1.36;  +2.54]  manader 60
+  2018-2022 (SRRI): stjarna                    +5.22 pp/ar  SE 0.67  t +7.82  95 % [ +3.91;  +6.53]
+  2023-2025 (SRI): riskklass                   +0.65 pp/ar  SE 0.55  t +1.17  95 % [ -0.44;  +1.73]  manader 36
+  2023-2025 (SRI): stjarna                     +6.04 pp/ar  SE 0.46  t +13.16  95 % [ +5.14;  +6.94]
+
+F4 inplanterad +0,100 per steg och manad ger +0.1000
