@@ -4,7 +4,7 @@ Gjord av AI (Claude) 20 november 2026. Ingen av författarna har kört om något
 
 ## 0. Regel: inget eget test
 
-Varje test i paketet är Ben-David m.fl. (2022) eller Adelino m.fl. (2017), ur artikeln eller författarnas kod. Följande ströks 20 november därför att det saknade förlaga:
+Varje test i paketet är Ben-David m.fl. (2022) eller Adelino m.fl. (2017), ur artikeln eller författarnas kod. Två anpassningar av Adelino är våra och behållna: antal steg (de har andel eller dummy) och volatilitetsdecil (de har storleksdecil). Följande ströks 20 november därför att det saknade förlaga:
 
 | Struket | Var det stod |
 |---|---|
@@ -80,9 +80,35 @@ Inskrivna för hand i `tabeller_figurer.py`. Kontrollerade mot den tryckta artik
 
 En av er bör ändå läsa dem mot artikeln en gång.
 
-## 5. Inte kontrollerat
+## 5. USA-urvalet är inte ankarets (funnet 20 november)
+
+Våra tal för USA stämmer med ankarets i riktning men är två till tre gånger större.
+
+| | Ankaret | Vi |
+|---|---|---|
+| Fonder / fondmånader | 3 341 / 248 463 | 2 638 / 233 290 |
+| Flöde, spridning mellan fonder | 2,18 | 3,81 |
+| Fondstorlek, median (MUSD) | 411 | 307 |
+| Ålder, 5:e percentilen och median (år) | 6,7 / 12,8 | 5,0 / 11,2 |
+| Flöde till femstjärniga fonder, % per månad | 1,16 | 2,47 |
+| Stjärnan mot rå avkastning | 0,099 | 0,280 |
+| Händelsetestet 2002, 5 mot 1 | 2,84, över gränsen (cirka 1,3, avläst ur figuren) | 1,82, under gränsen 2,22 |
+| Händelsetestet 2002, 4-5 mot 1-2 | 1,81, över gränsen (cirka 0,4) | 2,64, över gränsen 0,72 |
+
+1. **Ankaret byggde inte sitt urval.** Kodens huvud: analysen görs på samma fondmånader som Barber, Huang och Odean (2016). Deras filter är inte lästa. Med kravet minst 6,5 års ålder får vi ankarets åldersfördelning (7,0 / 12,8 mot 6,7 / 12,8). Det motsvarar 60 månader för betorna plus 18 för signalen. Vi kräver 36 (kodens `min_mm`), som i ankarets kod gäller inom ett redan filtrerat urval.
+2. **Exporten saknar förmögenhet för många andelsklasser:** 38 % av klassmånaderna 1997, 29 % 2002, 22 % 2006, 14 % 2011. Bara 40 % av våra fondmånader har alla klasser med.
+3. **Flödena svänger mer hos oss i alla grupper,** också för fonder över 1 000 MUSD (spridning 2,71) och fonder där alla klasser finns med (4,02). Orsaken är inte funnen.
+
+Diagnos med 6,5-årskravet (192 054 fondmånader, 2 227 fonder), inte infört: stjärnan mot rå avkastning 0,213 (t 3,09); mot FF3 0,327 (4,94); ändrat betyg 14,0 / 53,2 / 12,1; händelsetestet 2,19 (inom) och 2,70 (över). Alla slutsatser står kvar.
+
+Alexander valde 20 november att inte bygga om. Samma kontroll av saknad förmögenhet är inte gjord på Europaexporterna.
+
+## 6. Källan för oktober 2006
+
+Morningstar (2023), "The Morningstar Rating for Funds", bilaga 2, s. 19: den 31 oktober 2006 infördes fem- och tioårsbetyg i Europa, totalbetyget blev ett vägt medel av tre-, fem- och tioårsbetygen, och uppskjutna avgifter och inlösenavgifter började räknas in. Två saker ändrades alltså samma dag. Morningstar ändrade metoden igen 31 oktober 2016. Se `reference/skrivunderlag_2026-11-20/NOTIS_kalla_for_morningstars_metodbyte_i_europa_oktober_2006_2026-11-20.md`.
+
+## 7. Inte kontrollerat
 
 - Panelbyggarna i `bygg/` är inte lästa mot författarnas kod rad för rad i denna körning. De granskades 18 till 20 november (`GRANSKNING_alla_test_mot_artiklarna_2026-11-20`).
 - Adelino m.fl.:s kod har vi inte. Artikeln är läst i trycket på s. 3236 till 3237 och 3242 till 3245.
 - Barber, Huang och Odean (2016), Fama och MacBeth (1973), Cameron, Gelbach och Miller (2011) och Statas manual är inte lästa.
-- Morningstars ändring i Europa oktober 2006 saknar primärkälla.

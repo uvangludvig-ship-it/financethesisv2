@@ -20,13 +20,13 @@
 \begin{center}
 {\Large\bfseries Slutligt underlag: tabeller, figurer och formler}\\[3pt]
 {\large BE451, Alexander Fox och Ludvig Pauli Uväng}\\[3pt]
-Byggt 20 november 2026 med \kod{final\_code/kor\_allt.sh}
+Byggt 21 november 2026 med \kod{final\_code/kor\_allt.sh}
 \end{center}
 
 \section*{Läs detta först}
 \begin{itemize}[leftmargin=*,itemsep=1pt]
 \item Dokumentet samlar det som kan stå i uppsatsen: sex tabeller, fyra figurer och bilaga A1 till A7. Efter varje tabell står hur den är räknad, formeln och källan.
-\item \textbf{Inget eget test finns med.} Varje test är ankarets (Ben-David m.fl.\ 2022) eller Adelino m.fl.\ (2017), ur artikeln eller författarnas kod. Det som ändå saknar förlaga står samlat i sista avsnittet.
+\item \textbf{Inget eget test finns med.} Varje test är ankarets (Ben-David m.fl.\ 2022) eller Adelino m.fl.\ (2017), ur artikeln eller författarnas kod. Det som ändå saknar förlaga står samlat i avsnittet ``Kvar utan förlaga''.
 \item Alla tal är körda av AI (Claude). Ingen av författarna har kört om något. Tabellerna skrivs av koden ur \kod{final\_result/tal/}; inga tal är inskrivna för hand utom ankarets egna.
 \item Tabeller, figurer och tabelltexter är på engelska så att de kan lyftas in. Förklaringarna är på svenska.
 \item Där ankarets kod och tryckta text skiljer sig följer vi koden (beslut 20 november); skillnaderna står i avsnitt~\ref{sec:avvik}.
@@ -60,6 +60,7 @@ Byggt 20 november 2026 med \kod{final\_code/kor\_allt.sh}
 \item[{[BHO]}] Barber, B. M., X. Huang och T. Odean (2016). Which Factors Matter to Investors? Evidence from Mutual Fund Flows. \textit{Review of Financial Studies} 29(10), 2600--2642. \textbf{Inte läst.} Används bara så som [BD] och [BD-kod] återger den (ekvation 5, avtagande vikter).
 \item[{[FM]}] Fama, E. F. och J. D. MacBeth (1973). Risk, Return, and Equilibrium: Empirical Tests. \textit{Journal of Political Economy} 81(3), 607--636. \textbf{Inte läst.} Metoden används så som [BD] beskriver den (bilaga B.3, s.~1767; tabell 6, s.~1761).
 \item[{[CGM]}] Cameron, A. C., J. B. Gelbach och D. L. Miller (2011). Robust Inference with Multiway Clustering. \textit{Journal of Business \& Economic Statistics} 29(2), 238--249. \textbf{Inte läst.} Formeln är den som Statas \kod{reghdfe} använder i [BD-kod].
+\item[{[MS]}] Morningstar (2023). The Morningstar Rating for Funds. Morningstar Methodology, april 2023, 20 sidor. \url{https://s25.q4cdn.com/634000362/files/doc_downloads/1/1157231.pdf}. Bilaga 2 (s.~19) och exhibit 5 (s.~15) kontrollerade 21 november. Hela dokumentet läst av en annan session (\kod{NOTIS\_kalla\_for\_morningstars\_metodbyte\_i\_europa\_oktober\_2006\_2026-11-20}).
 \end{description}
 
 \section{Data}
@@ -141,11 +142,11 @@ $\text{Efter}_t=1$ månaderna efter händelsemånaden, annars 0. $X$ är rå avk
 \setcounter{figure}{0}
 \begin{figure}[H]
 \centering\includegraphics[width=\textwidth]{figurer/figur1.pdf}
-\caption{Share of funds whose label differs from the month before. Left: Morningstar ratings of U.S. funds; Morningstar began rating within style categories in June 2002. Middle: Morningstar ratings of European funds; the marked month is October 2006. Right: the EU risk number; the Summary Risk Indicator replaced the Synthetic Risk and Reward Indicator on 1 January 2023.}
+\caption{Share of funds whose label differs from the month before. Left: Morningstar ratings of U.S. funds; Morningstar began rating within category peer groups on 30 June 2002. Middle: Morningstar ratings of European funds; on 31 October 2006 Morningstar introduced five- and ten-year ratings in Europe and made the overall rating a weighted average of the three-, five- and ten-year ratings. Right: the EU risk number; the Summary Risk Indicator replaced the Synthetic Risk and Reward Indicator on 1 January 2023.}
 \end{figure}
 
 \begin{table}[H]
-\caption{Two rating reforms in the form of Table 4 of Ben-David et al.\ (2022). The first row of each panel gives the share of fund-months in which the fund's rating differs from its previous observation in the sample. ``Explained by month $\times$ rating'' is the $R^2$ of a regression of flow on the 18-month raw return with month-by-rating effects, minus the $R^2$ with month effects only; ``category beyond rating'' adds month-by-category effects to month-by-rating effects. The event month counts as before. Panel A: Morningstar began rating U.S. funds within style categories in June 2002. Panel B: European funds, October 2006.}
+\caption{Two rating reforms in the form of Table 4 of Ben-David et al.\ (2022). The first row of each panel gives the share of fund-months in which the fund's rating differs from its previous observation in the sample. ``Explained by month $\times$ rating'' is the $R^2$ of a regression of flow on the 18-month raw return with month-by-rating effects, minus the $R^2$ with month effects only; ``category beyond rating'' adds month-by-category effects to month-by-rating effects. The event month counts as before. Panel A: Morningstar began rating U.S. funds within category peer groups on 30 June 2002. Panel B: on 31 October 2006 Morningstar introduced five- and ten-year ratings in Europe and made the overall rating a weighted average of the three-, five- and ten-year ratings (Morningstar 2023, Appendix 2).}
 \centering\resizebox{\textwidth}{!}{\input{tabeller/tabell3.tex}}
 \end{table}
 \raknas Andel med ändrat betyg: andelen fondmånader där betyget skiljer sig från fondens föregående rad i urvalet, räknad över alla fondmånader före respektive efter (kodens \kod{lag1(rating)} och \kod{proc summary ... by ba\_reform}). Förklaringsgrad (vanligt $R^2$ i de två regressionerna; observationer som är ensamma i sin grupp tas bort, som Statas \kod{reghdfe} gör):
@@ -153,7 +154,8 @@ $\text{Efter}_t=1$ månaderna efter händelsemånaden, annars 0. $X$ är rå avk
 R^2_{\text{marg}}=R^2\big(F\ \text{på}\ \text{ALPHA}^{\text{rå}},\ \mu_{t\times\text{betyg}}\big)-R^2\big(F\ \text{på}\ \text{ALPHA}^{\text{rå}},\ \mu_t\big).
 \end{equation}
 \kalla{[BD] tabell 4, s.~1746, och texten s.~1746--1748; [BD-kod] ``Table 4. Effects of Morningstar's Reform on Ratings and Flows'': \kod{af\_j02 = 1; if yyyymm le 200206 then af\_j02 = 0}, \kod{reghdfe std\_floww retrf\_a if af\_j02 == 0, a(yyyymm)} mot \kod{a(month\_rating)}. Kategoriraderna tas bara med för USA: de prövar innehållet i 2002 års reform. Kod: \kod{lib/ankartest.py:andel\_andrad, table4b}; \kod{test/usa.py}, \kod{test/eu2006.py}.}
-\visar I USA är betygets förklaringsgrad oförändrad efter reformen, som hos ankaret. I Europa bytte 45,8~\% av fonderna betyg i oktober 2006, mot 19,0~\% en vanlig månad före. Betygets förklaringsgrad är 0,0119 före och 0,0100 efter. Talen är små: en del av dem uppstår av sig själv när grupperna blir fler, så skillnaden ska inte läsas som ett fall. \textbf{Vi har ingen källa från Morningstar för vad som ändrades i oktober 2006.} Utan den visar panel B bara att många betyg ändrades den månaden.
+\visar I USA är betygets förklaringsgrad oförändrad efter reformen, som hos ankaret. I Europa bytte 45,8~\% av fonderna betyg i oktober 2006, mot 19,0~\% en vanlig månad före. Betygets förklaringsgrad är 0,0119 före och 0,0100 efter. Talen är små: en del av dem uppstår av sig själv när grupperna blir fler, så skillnaden ska inte läsas som ett fall.
+\kalla{Händelserna: [MS] bilaga 2, s.~19. 31 oktober 2006, Europa: fem- och tioårsbetyg infördes, totalbetyget blev ett vägt medel av tre-, fem- och tioårsbetygen, och uppskjutna avgifter och inlösenavgifter började räknas in. \textbf{Två saker ändrades alltså samma dag.} Fonder med under fem års historik behåller treårsbetyget som totalbetyg ([MS] exhibit 5, s.~15). 30 juni 2002, USA: jämförelse inom kategori, och tre ändringar till. Morningstar ändrade metoden igen 31 oktober 2016 (avgiftsjusteringen togs bort); Europapanelen slutar där.}
 
 \setcounter{figure}{2}
 \begin{figure}[H]
@@ -167,7 +169,7 @@ D_y=\sum_{m}\Big[\big(\bar F^{\,\text{visat}}_{\text{topp},m}-\bar F^{\,\text{vi
 Intervallet: dra ett jämförelseår, dra tre av dess månader med återläggning, summera; 10~000 dragningar; 1:a och 99:e percentilen. Antalet dragningar anger ankaret inte. Fonden ska finnas i urvalet i händelsemånaden, och dess betyg den månaden är det kommande betyget (kodens \kod{focal\_rating}). Alla andra år är jämförelseår.
 \kalla{[BD] ekvation 2, s.~1749; figur 5, panel B, s.~1747 (``Years other than 2002 serve as placebo tests''); bootstrap enligt not 24, s.~1749 (``we first resample the focal year and then randomly draw 3 months within that year (with replacement)''); [BD-kod] ``Test For Figure 5 Panel B''. Kod: \kod{lib/ankartest.py:fig5b}.}
 \begin{center}\resizebox{0.95\textwidth}{!}{\input{tabeller/figur3_tal.tex}}\end{center}
-\visar I USA 2002 följde flödena det visade betyget, inte det kommande: måttet för 4--5 mot 1--2 stjärnor ligger över intervallet och är störst av alla år. Ankaret finner samma sak. I Europa 2006 är båda måtten störst av alla år, men 4--5 mot 1--2 ligger inom intervallet och 5 mot 1 ligger precis över gränsen (3,05 mot 2,99). Europa ger alltså ett svagare svar än USA.
+\visar I USA 2002 följde flödena det visade betyget, inte det kommande: måttet för 4--5 mot 1--2 stjärnor ligger över intervallet och är störst av alla år. \textbf{Ankaret ligger över gränsen i båda rutorna; vi i en.} Ankarets staplar är 2,84 (5 mot 1) och 1,81 (4--5 mot 1--2), summerade ur kodens utskrift, mot övre gränser på ungefär 1,3 och 0,4, avlästa ur deras figur 5 B. Vår stapel för 5 mot 1 är lägre (1,82) och vår gräns högre (2,22), eftersom våra jämförelseår svänger mer. I Europa 2006 är båda måtten störst av alla år, men 4--5 mot 1--2 ligger inom intervallet och 5 mot 1 ligger precis över gränsen (3,05 mot 2,99). Europa ger alltså ett svagare svar än USA.
 
 \section{Följer flödena risksiffran?}
 \begin{table}[H]
@@ -193,7 +195,7 @@ Intervallet: dra ett jämförelseår, dra tre av dess månader med återläggnin
 F_{f,t}=\beta\,\text{Fall}_f\times\text{After}_t+\eta_f+\eta_{\text{kategori},t}+\eta_{\text{volatilitetsdecil},t}+\varepsilon_{f,t}.
 \end{equation}
 $\text{Fall}_f$ = gammal siffra (SRRI, december 2022) minus ny (SRI). Volatilitetsdecilen bygger på fondens volatilitet före bytet. Minsta påvisbara effekt: $(1{,}96+0{,}84)\cdot SE=2{,}8\cdot SE$ (5~\% nivå, 80~\% styrka).
-\kalla{[ACF] ekvation 1, s.~3236: $\text{Rating}_{it}=\beta\,\text{Recalibrated}_i\times\text{Post}_t+\text{kontroller}+\eta_i+\eta_{\text{state},t}+\eta_{\text{size},t}+\varepsilon_{it}$, med standardfel klustrade på county och storleksdecilen med ``in some specifications''. Vår översättning: fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Deras skäl för storleksdecilen är att fånga tidsvarierande faktorer som träffar olika stora enheter olika (s.~3236). Hos oss bestämmer volatiliteten hur många steg siffran föll, därför får den egna tidseffekter. Winsoriseringen är ankarets ([BD] s.~1733). Minsta påvisbara effekt krävs av kursens bilder; \textbf{formeln saknar källa i underlaget}. Kod: \kod{test/byte2023.py}.}
+\kalla{[ACF] ekvation 1, s.~3236: $\text{Rating}_{it}=\beta\,\text{Recalibrated}_i\times\text{Post}_t+\text{kontroller}+\eta_i+\eta_{\text{state},t}+\eta_{\text{size},t}+\varepsilon_{it}$, med standardfel klustrade på county och storleksdecilen med ``in some specifications''. Deras förklarande variabel är andelen uppgraderade kommuner i countyt (ekvation 1) eller en dummy för uppgraderad kommun (ekvation 2, s.~3237). \textbf{Vi räknar i stället antal steg siffran föll (0, 1, 2)}, eftersom bara 418 av 4~818 fonder föll inget steg. Vår översättning i övrigt: fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Deras skäl för storleksdecilen är att fånga tidsvarierande faktorer som träffar olika stora enheter olika (s.~3236). Hos oss bestämmer volatiliteten hur många steg siffran föll, därför får den egna tidseffekter. Winsoriseringen är ankarets ([BD] s.~1733). Minsta påvisbara effekt krävs av kursens bilder; \textbf{formeln saknar källa i underlaget}. Kod: \kod{test/byte2023.py}.}
 \visar Ingen effekt hittas. Intervallet i kolumn 2 utesluter effekter större än ungefär en fjärdedel av det en stjärna hänger ihop med i kolumn 3.
 
 \setcounter{figure}{3}
@@ -259,9 +261,9 @@ $\text{Fall}_f$ = gammal siffra (SRRI, december 2022) minus ny (SRI). Volatilite
 \toprule
  & Ankaret & Vi \\
 \midrule
-1 & CRSP, sammanslaget med Morningstar ([BD] s.~1733) & Morningstar Direct för allt. Flödena sprider 1,7 gånger mer (tabell 1, panel A) \\
+1 & Urvalet är Barber, Huang och Odeans fondmånader ur CRSP ([BD-kod], kodens huvud), sammanslaget med Morningstar ([BD] s.~1733) & Eget urval ur Morningstar Direct. Flödena sprider 1,7 gånger mer (tabell 1, panel A). Se avsnittet om USA-urvalet \\
 2 & Tabell 3 enligt texten: skillnad mellan två indikatorers koefficienter ([BD] s.~1744) & Kodens form: $b_1$ på skillnaden mellan indikatorerna, utan månadseffekt. Det är halva skillnaden och det tal ankaret trycker. Textens form står i bilaga A4 \\
-3 & Betor: texten anger 60 månader ([BD] ekvation A.2, s.~1765) & Kodens krav: minst 36 av 60 månader \\
+3 & Betor: texten anger 60 månader ([BD] ekvation A.2, s.~1765). Ankarets yngsta fonder är 6,7 år (tabell 1, s.~1734) & Kodens krav: minst 36 av 60 månader. Våra yngsta fonder är 5,0 år. \textbf{Troligen fel val; se avsnittet om USA-urvalet} \\
 4 & Historisk avgift och kategori & Dagens avgift och kategori (det exporten ger) \\
 5 & Amerikanska faktorer & Europa: Fama-Frenchs Developed-faktorer i USD (Europe-faktorer i bilaga A4) \\
 6 & Diversifierade amerikanska aktiefonder & Europa: alla aktiefonder med säte i Luxemburg eller Irland \\
@@ -282,8 +284,8 @@ $\text{Fall}_f$ = gammal siffra (SRRI, december 2022) minus ny (SRI). Volatilite
 \section{Kvar utan förlaga: ni avgör}
 Detta finns kvar i dokumentet men går inte att hänvisa till en artikel rakt av.
 \begin{enumerate}[leftmargin=*,itemsep=1pt]
-\item \textbf{Händelsen oktober 2006.} Testen är ankarets, men vi har ingen källa från Morningstar för vad som ändrades. Utan den bör panel B i tabell 3 och Europadelen av figur 3 strykas eller beskrivas som ``en månad då ovanligt många betyg ändrades''.
-\item \textbf{Översättningen av Adelino m.fl.} Fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Någon översättning krävs när metoden flyttas till fonder; den här är vår.
+\item \textbf{Händelsen oktober 2006} har nu en källa ([MS] bilaga 2). Kvar: två saker ändrades samma dag, och fallet i flöde per stjärna efter 2006 har ingen jämförelsegrupp.
+\item \textbf{Översättningen av Adelino m.fl.} Antal steg i stället för deras andel eller dummy. Fond för county, kategori $\times$ månad för delstat $\times$ år, volatilitetsdecil $\times$ månad för storleksdecil $\times$ år. Någon översättning krävs när metoden flyttas till fonder; den här är vår. Alexander valde 20 november att behålla den.
 \item \textbf{Urvalet i tabell 6.} Icke-institutionella klasser, minst 1 MUSD per klass, minst 18 flödesmånader på var sida om bytet. Ankarets regel är minst 10 MUSD per fond och alla klasser. Urvalet kan byggas om efter ankarets regel.
 \item \textbf{Minsta påvisbara effekt.} Krävs av kursens bilder. Formeln $2{,}8\cdot SE$ saknar källa i underlaget.
 \item \textbf{Stjärnan som kontroll i tabell 6, kolumn 3.} Adelino m.fl.\ har ``kontroller'' i ekvation 1; att just stjärnan läggs in är vårt val.
@@ -292,9 +294,27 @@ Detta finns kvar i dokumentet men går inte att hänvisa till en artikel rakt av
 \item \textbf{Före och efter under figur 2.} Regressionen är ankarets, men ankaret räknar inte ut skillnaden mellan perioderna. De två kortare perioderna för Europa är vårt val.
 \end{enumerate}
 
+\section{USA-urvalet är inte ankarets}
+Våra tal för USA stämmer med ankarets i riktning men är två till tre gånger större (stjärnan mot rå avkastning 0,280 mot 0,099; flöde till femstjärniga fonder 2,47 mot 1,16~\% per månad). Tre saker ligger bakom, funna 20 november:
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \textbf{Ankaret byggde inte sitt urval.} Kodens huvud säger att analysen görs på samma fondmånader som Barber, Huang och Odean (2016). Deras filter är inte lästa. Ett filter syns i talen: med kravet minst 6,5 års ålder får vi ankarets åldersfördelning (5:e percentil 7,0 och median 12,8 år, mot 6,7 och 12,8). Det motsvarar 60 månader för betorna plus 18 för signalen. Vi kräver 36.
+\item \textbf{Exporten saknar förmögenhet för många andelsklasser:} 38~\% av klassmånaderna 1997, 29~\% 2002, 14~\% 2011. Bara 40~\% av våra fondmånader har alla klasser med. Fonderna ser därför mindre ut (median 307 mot 411 MUSD) och är färre (2~638 mot 3~341).
+\item \textbf{Flödena svänger mer hos oss i alla grupper,} också för stora fonder och för fonder där alla klasser finns med. Orsaken är inte funnen.
+\end{enumerate}
+Med 6,5-årskravet, kört som diagnos och inte infört: stjärnan mot rå avkastning 0,213 ($t=3{,}09$); andel med ändrat betyg 14,0 / 53,2 / 12,1 (ankaret 13,9 / 54,2 / 11,9); händelsetestet 2,19 (inom) och 2,70 (över). Alla slutsatser står kvar. \textbf{Alexander valde 20 november att inte bygga om.} Uppsatsen ska därför säga att USA-delen återskapar ankaret i riktning, inte i storlek, på ett urval som inte är identiskt.
+
+\section{Oförklarat}
+\begin{itemize}[leftmargin=*,itemsep=1pt]
+\item Varför flödet per stjärna föll i Europa efter 2006: betygsbytet, finanskrisen eller annat.
+\item Varför stjärnan slår rå avkastning i USA men inte i Europa.
+\item Varför risksiffran inte flyttar pengar. Tabellerna visar att den inte gör det, inte varför.
+\item Varför flödet per stjärna är så lågt 2016 (0,11). Morningstar bytte metod 31 oktober 2016; sambandet är inte prövat.
+\item Varför våra amerikanska flöden svänger mer än ankarets.
+\end{itemize}
+
 \section{Inte läst eller inte gjort}
 \begin{itemize}[leftmargin=*,itemsep=1pt]
-\item {[BHO]}, [FM], [CGM] och Statas manual är inte lästa. [ACF] är läst i trycket bara på de sidor som anges i avsnitt~\ref{sec:kallor}; deras kod har vi inte.
+\item {[BHO]}, [FM], [CGM] och Statas manual är inte lästa. [BHO] behövs för USA-urvalet. [ACF] är läst i trycket bara på de sidor som anges i avsnitt~\ref{sec:kallor}; deras kod har vi inte.
 \item Den andra regressorn i ankarets tabell 3 definieras inte i den kod vi har. Det påverkar inte koefficienten (bilaga A4).
 \item UK mot EU är inte återskapad.
 \item Panelbyggarna i \kod{final\_code/bygg} är de ursprungliga skripten och är inte lästa mot författarnas kod rad för rad i denna körning.
