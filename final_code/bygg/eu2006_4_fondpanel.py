@@ -41,6 +41,10 @@ wts = np.exp(-LAMBDA * np.arange(18)); W = wts.sum()
 S = np.zeros_like(retrf); ok = np.ones_like(retrf, dtype=bool)
 for s in range(1, 19):
     lag = np.full_like(retrf, np.nan); lag[:, s:] = retrf[:, :-s]; ok &= ~np.isnan(lag); S += wts[s - 1] * np.nan_to_num(lag)
+# Fem ars avkastningshistorik (Barber, Huang och Odean 2016, not 8). I det fulla bygget kraver signalen for manad m
+# en beta for manad m-17, och den kraver en avkastning 60 manader tidigare: forsta avkastningen senast m-77.
+har = ~np.isnan(retrf); forsta = np.where(har.any(axis=1), har.argmax(axis=1), T)
+ok &= (np.arange(T)[None, :] - forsta[:, None]) >= 77
 sig = S / W; sig[~ok] = np.nan; f["unad_a"] = sig.reshape(-1)
 st2 = st.copy(); st2["inc"] = pd.to_datetime(st2["Inception Date"], errors="coerce"); st2["idx"] = st2["Index Fund"].eq("Yes")
 sf = st2.groupby("FundId").agg(inc=("inc", "min"), cat=("Morningstar Category", "first"), index=("idx", "any"))

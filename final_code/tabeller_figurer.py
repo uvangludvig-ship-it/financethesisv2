@@ -17,6 +17,11 @@ tp = lambda t, d=2: "" if pd.isna(t) else f"({t:.{d}f})".replace("-", "$-$")
 n0 = lambda x: "" if pd.isna(x) else f"{int(round(x)):,}"
 
 
+def manadstext(ym):
+    """'2019-06' -> 'June 2019'."""
+    return pd.Period(ym, "M").strftime("%B %Y")
+
+
 def skriv(namn, rader):
     (T / f"{namn}.tex").write_text("\n".join(rader) + "\n", encoding="utf-8")
 
@@ -42,11 +47,12 @@ for _, x in L("usa_table1").iterrows():
     a = ANK_T1[x.variable]
     r.append(f"{x.variable.replace('%', chr(92) + '%')} & {n0(x.N)} & {ff(x['mean'])} & {ff(x.cs_sd)} & {ff(x.p5)} & {ff(x.p25)} & {ff(x.p50)} & {ff(x.p75)} & {ff(x.p95)} & {ff(a[0])} & {ff(a[1])} & {ff(a[2])} \\\\")
 u = L("eu_urval").iloc[0]
-r += [r"\addlinespace", rf"\multicolumn{{12}}{{l}}{{\textit{{Panel B. Europe, January 2018 to December 2025 ({n0(u.fund_months)} fund-months, {n0(u.funds)} funds)}}}} \\"]
+r += [r"\addlinespace", rf"\multicolumn{{12}}{{l}}{{\textit{{Panel B. Europe, {manadstext(u['first'])} to {manadstext(u['last'])} ({n0(u.fund_months)} fund-months, {n0(u.funds)} funds)}}}} \\"]
 for _, x in L("eu_table1").iterrows():
     r.append(f"{x.variable.replace('%', chr(92) + '%')} & {n0(x.N)} & {ff(x['mean'])} & {ff(x.cs_sd)} & {ff(x.p5)} & {ff(x.p25)} & {ff(x.p50)} & {ff(x.p75)} & {ff(x.p95)} & & & \\\\")
 t1c = L("eu2006_table1")
-r += [r"\addlinespace", rf"\multicolumn{{12}}{{l}}{{\textit{{Panel C. Europe, January 2003 to December 2010 ({n0(t1c.N.max())} fund-months)}}}} \\"]
+forsta06 = L("eu2006_urval")["first"].iloc[0]
+r += [r"\addlinespace", rf"\multicolumn{{12}}{{l}}{{\textit{{Panel C. Europe, {manadstext(forsta06)} to December 2010 ({n0(t1c.N.max())} fund-months)}}}} \\"]
 for _, x in t1c.iterrows():
     r.append(f"{x.variable.replace('%', chr(92) + '%')} & {n0(x.N)} & {ff(x['mean'])} & {ff(x.cs_sd)} & {ff(x.p5)} & {ff(x.p25)} & {ff(x.p50)} & {ff(x.p75)} & {ff(x.p95)} & & & \\\\")
 u = L("byte2023_urval").iloc[0]
@@ -94,7 +100,7 @@ r = [r"\begin{tabular}{lcccccc}", r"\toprule", r" & \multicolumn{3}{c}{Risk numb
 for s in ["Fama-MacBeth", "Pooled, month effects"]:
     x = s3.loc[s]
     r.append(rf"{s.replace('2018-2022', '2018--2022').replace('2023-2025', '2023--2025')} & {f(x.risk_pp_year)} & {f(x.risk_se)} & [{f(x.risk_lo)}, {f(x.risk_hi)}] & {f(x.star_pp_year)} & {f(x.star_t, 1)} & {n0(x.N)} \\")
-x = r3.loc[("2018-2025", "EW")]
+x = r3.loc[("all", "EW")]
 r += [r"\addlinespace", r"\multicolumn{7}{l}{\textit{Panel B. Share of flow variation explained beyond the other two blocks (percent, equal-weighted)}} \\",
       rf"\multicolumn{{7}}{{l}}{{Past return {f(x.returns)} \quad Star rating {f(x.ratings)} \quad Risk number {f(x.risk)} \quad ({n0(x.N)} fund-months)}} \\", r"\bottomrule", r"\end{tabular}"]
 skriv("tabell4", r)
@@ -197,7 +203,7 @@ skriv("bilaga_a4b", r)
 # Figur 2 i tva perioder: flode per stjarna fore och efter reformen
 uf, ef = L("usa_fore_efter").iloc[0], L("eu2006_fore_efter").set_index("period")
 r = [r"\begin{tabular}{lcccccc}", r"\toprule", r" & Before & After & Difference & $t$ & Fund-months before & Fund-months after \\", r"\midrule"]
-for lab, x in [("United States, June 2002 (1997--2011)", uf), ("Europe, October 2006 (2003--2016)", ef.loc["2003-2016"]), ("Europe, October 2006 (2003--2015)", ef.loc["2003-2015"]), ("Europe, October 2006 (2003--2010)", ef.loc["2003-2010"])]:
+for lab, x in [("United States, June 2002 (1997--2011)", uf), ("Europe, October 2006 (to 2016)", ef.loc["to 2016"]), ("Europe, October 2006 (to 2015)", ef.loc["to 2015"]), ("Europe, October 2006 (to 2010)", ef.loc["to 2010"])]:
     r.append(rf"{lab} & {f(x.before, 3)} ({f(x.se_before, 3)}) & {f(x.after, 3)} ({f(x.se_after, 3)}) & {f(x.difference, 3)} ({f(x.se_difference, 3)}) & {f(x.t_difference)} & {n0(x.N_before)} & {n0(x.N_after)} \\")
 r += [r"\bottomrule", r"\end{tabular}"]
 skriv("figur2_tal", r)
@@ -244,7 +250,7 @@ fig.tight_layout(); fig.savefig(F / "figur1.pdf"); plt.close(fig)
 
 # Figur 2: flode per stjarna per ar
 fig, ax = plt.subplots(1, 3, figsize=(9.2, 2.7), sharey=True)
-for a_, (namn, titel) in zip(ax, [("usa_fig5a_coef", "United States, 1997-2011"), ("eu2006_fig5a_coef", "Europe, 2003-2016"), ("eu_fig5a_coef", "Europe, 2018-2025")]):
+for a_, (namn, titel) in zip(ax, [("usa_fig5a_coef", "United States, 1997-2011"), ("eu2006_fig5a_coef", "Europe, 2004-2016"), ("eu_fig5a_coef", "Europe, 2019-2025")]):
     s = L(namn)
     a_.axhspan(0.4, 0.6, color="#e6e6e6", lw=0)
     a_.errorbar(s.year, s.coef, yerr=1.96 * s.se, fmt="o", color=SV, ms=3.5, lw=0.8, capsize=2)

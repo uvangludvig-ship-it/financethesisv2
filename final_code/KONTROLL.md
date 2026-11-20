@@ -32,7 +32,7 @@ Det som finns kvar utan förlaga står i sista avsnittet av `final.pdf` ("Kvar u
 | `final_result/tal/*.csv` | 83 av 83 filer identiska, varje tal |
 | `final_result/tabeller/*.tex` | 16 av 16 filer identiska |
 
-Panelbyggarna i `bygg/` ger alltså samma paneler som förut.
+Alla paneler utom den för tabell 6 byggdes om från rådata 21 november med femårskravet (avsnitt 5). Testen kördes sedan två gånger på samma paneler och gav identiska filer. Jämförelsen mot de äldre skriptens paneler gällde läget före ombyggnaden.
 
 ## 2. Genomgång mot författarnas kod
 
@@ -80,28 +80,58 @@ Inskrivna för hand i `tabeller_figurer.py`. Kontrollerade mot den tryckta artik
 
 En av er bör ändå läsa dem mot artikeln en gång.
 
-## 5. USA-urvalet är inte ankarets (funnet 20 november)
+## 5. USA-urvalet mot ankarets
 
-Våra tal för USA stämmer med ankarets i riktning men är två till tre gånger större.
+Ankaret byggde inte sitt urval. Analysen görs på Barber, Huang och Odeans (2016) fondmånader: deras tabell 5 har 248 463 observationer i kolumnen med stjärnbetyg, exakt ankarets antal. Artikeln är läst 21 november i SSRN-versionen (18 maj 2016); se `reference/skrivunderlag_2026-11-20/NOTIS_barber_huang_odean_last_urval_och_metod_2026-11-21.md`.
 
-| | Ankaret | Vi |
+**Rättat 21 november: femårskravet.** De kräver fem års avkastningshistorik för att en fond ska ingå (not 8, avsnitt 2.6). Vi krävde 36 månader. `bygg/usa_panel.py` kräver nu en avkastning 60 månader eller mer före varje beta, och minst 36 observationer i fönstret (ankarets kod).
+
+| | Ankaret | Vi före | Vi nu |
+|---|---|---|---|
+| Fondmånader / fonder | 248 463 / 3 341 | 233 290 / 2 638 | 193 059 / 2 244 |
+| Ålder, 5:e percentil / median (år) | 6,7 / 12,8 | 5,0 / 11,2 | 6,9 / 12,8 |
+| Fondstorlek, median (MUSD) | 411 | 307 | 365 |
+| Flöde, spridning mellan fonder | 2,18 | 3,81 | 3,41 |
+| Stjärnan mot rå avkastning | 0,099 (2,50) | 0,280 (4,46) | 0,217 (3,26) |
+| Stjärnan mot CAPM | 0,108 (2,72) | 0,262 (4,29) | 0,181 (2,80) |
+| Stjärnan mot FF3 | 0,192 (4,85) | 0,412 (6,68) | 0,327 (5,09) |
+| Stjärnan mot FFC | 0,188 (4,73) | 0,346 (5,81) | 0,303 (4,85) |
+| Flöde till femstjärniga fonder, % per månad | 1,16 | 2,47 | 2,11 |
+| Ändrat betyg före / juni 2002 / efter | 13,9 / 54,2 / 11,9 | 14,7 / 51,7 / 12,5 | 14,0 / 53,0 / 12,1 |
+| Betygets förklaringsgrad före / efter | 0,073 / 0,074 | 0,058 / 0,061 | 0,064 / 0,061 |
+| Kategori utöver betyg före / efter | 0,022 / 0,014 | 0,017 / 0,011 | 0,023 / 0,013 |
+| Händelsetestet, 5 mot 1 | 2,84, över | 1,82, inom | 2,47 [-1,64; 3,11], inom |
+| Händelsetestet, 4-5 mot 1-2 | 1,81, över | 2,64, över | 2,96 [-0,67; 0,62], över |
+| Flöde per stjärna före / efter, skillnad | | -0,102 (t -1,58) | -0,128 (t -1,96) |
+
+Kvar och inte rättbart med nuvarande data:
+
+1. **Exporten saknar förmögenhet för många andelsklasser:** 38 % av klassmånaderna 1997, 29 % 2002, 22 % 2006, 14 % 2011.
+2. **Fondsammanslagningar justeras inte.** De justerar (not 6).
+3. **Våra flöden har extrema värden som deras saknar.** Med deras filter (-90 % till 1 000 %) är vår standardavvikelse ungefär 8 % mot deras 2,25 %. Kvartilerna stämmer; skillnaden sitter i den yttersta procenten.
+
+**Europapanelerna fick samma regel 21 november** (`bygg/eu_5_fondpanel.py`, `bygg/eu2006_4_fondpanel.py`).
+
+| | Med 36 månader | Med fem år |
 |---|---|---|
-| Fonder / fondmånader | 3 341 / 248 463 | 2 638 / 233 290 |
-| Flöde, spridning mellan fonder | 2,18 | 3,81 |
-| Fondstorlek, median (MUSD) | 411 | 307 |
-| Ålder, 5:e percentilen och median (år) | 6,7 / 12,8 | 5,0 / 11,2 |
-| Flöde till femstjärniga fonder, % per månad | 1,16 | 2,47 |
-| Stjärnan mot rå avkastning | 0,099 | 0,280 |
-| Händelsetestet 2002, 5 mot 1 | 2,84, över gränsen (cirka 1,3, avläst ur figuren) | 1,82, under gränsen 2,22 |
-| Händelsetestet 2002, 4-5 mot 1-2 | 1,81, över gränsen (cirka 0,4) | 2,64, över gränsen 0,72 |
+| **Europa 2018 till 2025:** första månad | januari 2018 | juni 2019 |
+| Fondmånader / fonder | 130 031 / 2 307 | 94 203 / 1 837 |
+| Stjärnan mot rå avkastning | -0,076 (-0,97) | -0,081 (-0,88) |
+| Stjärnan mot FF3 | 0,121 (1,76) | 0,042 (0,52) |
+| Rå avkastning mot FF3 | 0,416 (4,40) | 0,258 (2,33) |
+| Risksiffran, tredje signalen (Fama-MacBeth) | 0,61 [-0,67; 1,90] | 1,08 [-0,22; 2,37] |
+| Stjärnan i samma regression | 5,53 (t 11,9) | 5,10 (t 11,0) |
+| Marginell förklaringsgrad: avkastning / betyg / risksiffra | 1,20 / 0,67 / 0,02 | 1,20 / 0,57 / 0,02 |
+| Månad x risksiffra före / efter | 0,0038 / 0,0039 | 0,0040 / 0,0044 |
+| **Europa 2006:** första månad | januari 2003 | juni 2004 |
+| Fondmånader före bytet | 57 043 | 24 924 |
+| Ändrat betyg före / oktober 2006 / efter | 19,0 / 45,8 / 15,3 | 20,3 / 48,0 / 14,6 |
+| Betygets förklaringsgrad före / efter | 0,0119 / 0,0100 | 0,0138 / 0,0097 |
+| Händelsetestet, 5 mot 1 | 3,05 [-2,54; 2,99], över | 4,91 [-4,45; 4,08], över |
+| Händelsetestet, 4-5 mot 1-2 | 0,72 [-2,31; 1,11], inom | 0,89 [-1,97; 0,52], över |
+| Flöde per stjärna före / efter, skillnad | -0,170 (t -2,57) | -0,190 (t -2,04) |
 
-1. **Ankaret byggde inte sitt urval.** Kodens huvud: analysen görs på samma fondmånader som Barber, Huang och Odean (2016). Deras filter är inte lästa. Med kravet minst 6,5 års ålder får vi ankarets åldersfördelning (7,0 / 12,8 mot 6,7 / 12,8). Det motsvarar 60 månader för betorna plus 18 för signalen. Vi kräver 36 (kodens `min_mm`), som i ankarets kod gäller inom ett redan filtrerat urval.
-2. **Exporten saknar förmögenhet för många andelsklasser:** 38 % av klassmånaderna 1997, 29 % 2002, 22 % 2006, 14 % 2011. Bara 40 % av våra fondmånader har alla klasser med.
-3. **Flödena svänger mer hos oss i alla grupper,** också för fonder över 1 000 MUSD (spridning 2,71) och fonder där alla klasser finns med (4,02). Orsaken är inte funnen.
-
-Diagnos med 6,5-årskravet (192 054 fondmånader, 2 227 fonder), inte infört: stjärnan mot rå avkastning 0,213 (t 3,09); mot FF3 0,327 (4,94); ändrat betyg 14,0 / 53,2 / 12,1; händelsetestet 2,19 (inom) och 2,70 (över). Alla slutsatser står kvar.
-
-Alexander valde 20 november att inte bygga om. Samma kontroll av saknad förmögenhet är inte gjord på Europaexporterna.
+Ingen slutsats ändras. Förlusten av perioder beror på att avkastningen i exporterna börjar 2013 respektive 1998. Med månadsavkastning från juli 2011 (2018 till 2025) och från augusti 1996 (2006) kan regeln gälla utan att perioderna kortas. Tabell 6 berörs inte; den bygger på ett annat urval.
 
 ## 6. Källan för oktober 2006
 
@@ -111,4 +141,4 @@ Morningstar (2023), "The Morningstar Rating for Funds", bilaga 2, s. 19: den 31 
 
 - Panelbyggarna i `bygg/` är inte lästa mot författarnas kod rad för rad i denna körning. De granskades 18 till 20 november (`GRANSKNING_alla_test_mot_artiklarna_2026-11-20`).
 - Adelino m.fl.:s kod har vi inte. Artikeln är läst i trycket på s. 3236 till 3237 och 3242 till 3245.
-- Barber, Huang och Odean (2016), Fama och MacBeth (1973), Cameron, Gelbach och Miller (2011) och Statas manual är inte lästa.
+- Barber, Huang och Odean (2016) är läst i SSRN-versionen, inte i trycket. Fama och MacBeth (1973), Cameron, Gelbach och Miller (2011) och Statas manual är inte lästa.

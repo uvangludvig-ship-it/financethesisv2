@@ -14,6 +14,7 @@ for p in (ARBETE, TAL, UT / "tabeller", UT / "figurer"):
 LAMBDA = 0.20551497      # %let Lambda: avtagande vikter over 18 manader (Barber, Huang och Odean 2016, ekv. 5)
 BETA_MANADER = 60        # %let n_years = 5
 BETA_MINST = 36          # %let min_mm = 36
+HISTORIK_MANADER = 60    # fem ars avkastningshistorik kravs i alla paneler (Barber, Huang och Odean 2016, not 8); se bygg/
 MIN_TNA_MUSD = 10        # artikeln s. 1733
 WINSOR = (0.01, 0.99)    # artikeln s. 1733: inom varje manad
 

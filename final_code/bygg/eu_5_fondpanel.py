@@ -74,8 +74,10 @@ def rolling_betas(Y, M, Xf):
     Cxx = np.cumsum(M[:, :, None, None] * xx[None], axis=1); Cxy = np.cumsum((Y * M)[:, :, None] * X[None], axis=1); Cn = np.cumsum(M, axis=1)
     win = lambda C, t: (C[:, t - 1] if t >= 1 else 0) - (C[:, t - 61] if t - 61 >= 0 else 0)
     B = np.full((F, Tn, k - 1), np.nan)
+    forsta = np.where(M.any(axis=1), M.argmax(axis=1), Tn)      # fondens forsta manad med avkastning
     for t in range(1, Tn):
-        n = win(Cn, t); ok = n >= 36
+        # fem ars avkastningshistorik (Barber, Huang och Odean 2016, not 8) och minst 36 observationer (ankarets kod, min_mm)
+        n = win(Cn, t); ok = (n >= 36) & (forsta <= t - 60)
         if not ok.any(): continue
         Sxx = win(Cxx, t)[ok]; Sxy = win(Cxy, t)[ok]
         try: b = np.linalg.solve(Sxx, Sxy[..., None])[..., 0]

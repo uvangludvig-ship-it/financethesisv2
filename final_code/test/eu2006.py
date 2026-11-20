@@ -21,7 +21,7 @@ def kor(panel, pfx):
     spara(pd.DataFrame([[len(d), d.FundId.nunique(), d.ym.min(), d.ym.max(), int((d.ym <= EV).sum()), int((d.ym == EV).sum())]],
                        columns=["fund_months", "funds", "first", "last", "before", "funds_event_month"]), "urval")
     if pfx == "eu2006":
-        spara(at.table1(d[(d.ym >= "2003-01") & (d.ym <= "2010-12")], [("size", "Fund size (USD million)"), ("age", "Age (years)"), ("flow", "Flow (%)"), ("unad_a", "Raw excess return (%)"), ("star", "Star rating")]), "table1")
+        spara(at.table1(d[d.ym <= "2010-12"], [("size", "Fund size (USD million)"), ("age", "Age (years)"), ("flow", "Flow (%)"), ("unad_a", "Raw excess return (%)"), ("star", "Star rating")]), "table1")
 
     # Table 4 Panel A: betyget mot fondens foregaende rad i panelen (koden: "lag1_rating = lag1(rating)")
     q = d.sort_values(["FundId", "ym"])[["FundId", "ym", "star"]].copy()
@@ -37,7 +37,7 @@ def kor(panel, pfx):
     spara(a, "fig5a_mean"); spara(c, "fig5a_coef")
     # samma regression, fore och efter oktober 2006 (hela perioden, och tva kortare)
     rows = []
-    for nm, slut in [("2003-2016", "2016-12"), ("2003-2015", "2015-12"), ("2003-2010", "2010-12")]:
+    for nm, slut in [("to 2016", "2016-12"), ("to 2015", "2015-12"), ("to 2010", "2010-12")]:
         t = at.fore_efter(d[d.ym <= slut], EV, kontroller=["unad_a"]); t.insert(0, "period", nm); rows.append(t)
     spara(pd.concat(rows), "fore_efter")
 

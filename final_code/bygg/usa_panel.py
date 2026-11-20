@@ -62,7 +62,11 @@ M = ~np.isnan(retrf)
 Y = np.where(M, retrf, 0.0)
 
 def rolling_betas(Xf):
-    """Betor för rad t ur fönstret t-60..t-1, minst 36 obs. Returnerar F x T x k (lutningar, utan konstant)."""
+    """Betor för rad t ur fönstret t-60..t-1. Två krav:
+    (1) fonden har fem års avkastningshistorik, det vill säga en avkastning i månad t-60 eller tidigare
+        (Barber, Huang och Odean 2016, not 8: "we require a five-year history of fund returns for inclusion");
+    (2) minst 36 observationer i fönstret (ankarets kod: "if obs_used ge &min_mm", min_mm = 36).
+    Returnerar F x T x k (lutningar, utan konstant)."""
     X = np.column_stack([np.ones(T), Xf])  # T x k
     k = X.shape[1]
     xx = np.einsum("ti,tj->tij", X, X)      # T x k x k
@@ -75,9 +79,10 @@ def rolling_betas(Xf):
         b = C[:, t - 61] if t - 61 >= 0 else 0
         return a - b
     B = np.full((F, T, k - 1), np.nan)
+    forsta = np.where(M.any(axis=1), M.argmax(axis=1), T)      # fondens första månad med avkastning
     for t in range(1, T):
         n = win(Cn, t)
-        ok = n >= 36
+        ok = (n >= 36) & (forsta <= t - 60)
         if not ok.any():
             continue
         Sxx = win(Cxx, t)[ok]; Sxy = win(Cxy, t)[ok]

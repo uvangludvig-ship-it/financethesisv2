@@ -33,6 +33,8 @@ Datan är licensierad. Repot ska vara privat.
 | Mapp | Innehåll |
 |---|---|
 | `config.py` | Sökvägar och ankarets konstanter (lambda, 60 månader, minst 36, 10 MUSD, winsorisering 1/99) |
+
+Alla paneler kräver fem års avkastningshistorik (Barber, Huang och Odean 2016, not 8), infört 21 november. Före och efter står i `KONTROLL.md`, avsnitt 5.
 | `bygg/` | Rådata till fondpaneler. De ursprungliga skripten, oförändrade i sak |
 | `lib/stat.py` | OLS med fasta effekter, kluster på fond och månad, Fama-MacBeth, Newey-West, förklaringsgrad |
 | `lib/ankartest.py` | Ankarets test som funktioner: `table1`, `table2`, `fig3`, `fig4`, `table3`, `fig5a`, `fore_efter`, `andel_andrad`, `table4b`, `fig5b` |

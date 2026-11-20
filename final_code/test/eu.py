@@ -1,4 +1,4 @@
-"""Europa 2018-2025: ankarets test pa europeiska fonder, risksiffran som tredje signal och
+"""Europa (2018-2025 i exporten; med fem ars historik fran juni 2019): ankarets test pa europeiska fonder, risksiffran som tredje signal och
 ankarets Table 4 pa bytet januari 2023.
 python3 test/eu.py             (laser _arbete/bd_eu_EU.pkl och bd_eu_kid.pkl)"""
 import sys
@@ -26,7 +26,7 @@ def tredje_signal(d, pfx):
         h[f"k{int(k)}"] = (h.lab == k).astype(float)
     S, L, A = [f"s{k}" for k in (2, 3, 4, 5)], [f"k{int(k)}" for k in labs], ["unad_a"]
     rows = []
-    for nm, g in [("2018-2025", h)]:
+    for nm, g in [("all", h)]:
         for wl in ("EW", "VW"):
             w = None if wl == "EW" else (g["size"] / g.groupby("ym")["size"].transform("sum")).values
             full = r2(g, "flow", A + S + L, ["ym"], w)
